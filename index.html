@@ -20,12 +20,15 @@
     <body>
         <!-- opening -->
         <div class="forest-container" id="forestContainer">
+            <div class="forest-gradient"></div> <!-- gradient overlay -->
             <img src="img/homepage/left_forest.png" class="forest left-forest" alt="left trees">
             <img src="img/homepage/right_forest.png" class="forest right-forest" alt="right trees">
 
             <div class="title-content">
-                <h1 class="title">WITCHES THROUGH TIME</h1>
-                <h2 class="subtitle">From Myth to Empowerment</h2>
+                <div class="title-text">
+                    <h1 class="title">WITCHES THROUGH TIME</h1>
+                    <h2 class="subtitle">From Myth to Empowerment</h2>
+                </div>
                 <button class="enter-btn" onclick="openCurtains()">Enter the Magic</button>
             </div>
         </div>
@@ -105,7 +108,7 @@
                 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
-                    <div class="carousel-item" data-bs-interval="5000">
+                    <div class="carousel-item active" data-bs-interval="5000">
                         <img src="img/homepage/rooms/Circe_Offering_the_Cup_to_Odysseus.jpg" alt="Circe">
                         <div class="carousel-caption">
                             <h3>Origins and Myth</h3>
@@ -134,7 +137,7 @@
                     </div>
                 </div>
 
-                        <!-- left and right buttons -->
+                <!-- left and right buttons -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#homepage-carousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>

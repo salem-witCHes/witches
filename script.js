@@ -1,17 +1,18 @@
 function openCurtains() {
-  const forestContainer = document.getElementById('forestContainer');
-  const homepageContent = document.getElementById('homepage-content');
+  const forest = document.getElementById('forestContainer');
+  const homepage = document.getElementById('homepage-content');
+  const gradient = forest.querySelector('.forest-gradient');
 
   // Add opening class to trigger animations
   forestContainer.classList.add('opening');
+
+  // Fade in gradient
+  gradient.style.opacity = '1';
             
-  // Fade out forest container
+  // Fade out forest container and show homepage content
   setTimeout(() => {
-    forestContainer.classList.add('hidden');
+    forest.classList.add('hidden');
+    homepage.classList.add('visible');
   }, 1500);
-            
-  // Show homepage content
-  setTimeout(() => {
-    homepageContent.classList.add('visible');
-  }, 2000);
+
 }
