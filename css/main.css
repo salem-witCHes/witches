@@ -22,6 +22,88 @@ body {
     font-family: var(--default-font);
 }
 
+/* forest container */
+.forest-container {
+  position: fixed;   /* stays on top */
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;      /* above everything */
+  overflow: hidden;
+  background-color: none;
+  transition: opacity 1s ease-in-out;
+}
+
+/* left & right trees */
+.forest {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  filter: blur(0.5px);
+  object-fit: cover;
+  transform: scale(1.05); /* slight zoom to hide edges */
+  transition: transform 1.5s ease-in-out;
+}
+
+.left-forest {
+  left: 0;
+}
+
+.right-forest {
+  right: 0;
+}
+
+/* center title and button */
+.title-content {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #000000;
+  z-index: 10;
+}
+
+/* .title {
+  font-size: 3rem;
+}
+
+.subtitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+*/ 
+
+.enter-btn {
+  background: none;
+  border: 1px solid #212529;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.enter-btn:hover {
+  background: #212529;
+  color: #FAF6F0;
+}
+
+/* homepage */
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease-in-out;
+}
+
+#homepage.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
 /* Navbar */
 .navbar {
     display: flex;
@@ -81,3 +163,18 @@ body {
     z-index: 1000;
 }
 
+/* Carousel */
+.carousel .slide, #homepage-carousel {
+  min-height: 50vh;
+}
+
+.carousel-caption {
+  text-decoration-line: underline;
+  /* add the link to the rooms */
+}
+
+.carousel-inner > .item > img {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: cover;
+}

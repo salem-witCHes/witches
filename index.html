@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Homepage</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="keywords" content="Witch trials, Witchcraft, Sorcery, Feminism">
@@ -18,6 +18,20 @@
     </head>
 
     <body>
+        <!-- opening -->
+        <div class="forest-container">
+            <img src="img/homepage/left_forest.png" class="forest left-forest" alt="left trees">
+            <img src="img/homepage/right_forest.png" class="forest right-forest" alt="right trees">
+
+            <div class="title-content">
+                <h1 class="title">WITCHES THROUGH TIME</h1>
+                <h2 class="subtitle">From Myth to Empowerment</h2>
+                <button class="enter-btn" onclick="openCurtains()">Enter the Magic</button>
+            </div>
+        </div>
+
+        <!-- homepage content -->
+        <!-- navbar -->
         <header>
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
@@ -77,6 +91,66 @@
             </nav>
         </header>
 
+        <!-- carousel section -->
+        <div id="homepage-carousel" class="carousel slide" data-bs-ride="carousel">
+            <!--  Indicators
+            <ol class="carousel-indicators">
+                <li data-target="#homepageCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#homepageCarousel" data-slide-to="1"></li>
+                <li data-target="#homepageCarousel" data-slide-to="2"></li>
+                <li data-target="#homepageCarousel" data-slide-to="3"></li>
+            </ol>
+            -->
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active" data-bs-interval="10000">
+                    <img src="img/homepage/rooms/Circe_Offering_the_Cup_to_Odysseus.jpg" alt="Circe">
+                    <div class="carousel-caption">
+                        <h3>Origins and Myth</h3>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-bs-interval="10000">
+                    <img src="img/homepage/rooms/Examination_of_a_Witch.jpg" alt="Paint">
+                    <div class="carousel-caption">
+                        <h3>Fear and Persecution</h3>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-bs-interval="10000">
+                    <img src="img/homepage/rooms/the_witch-warhol.jpg" alt="the_witch-warhol">
+                    <div class="carousel-caption">
+                        <h3>Aesthetic Reinterpretations</h3>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-bs-interval="10000">
+                    <img src="img/homepage/rooms/le_streghe_sono_tornate.jpg" alt="photo">
+                    <div class="carousel-caption">
+                        <h3>Empowerment</h3>
+                    </div>
+                </div>
+        </div>
+
+        <!-- left and right buttons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#homepage-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+      
+        <button class="carousel-control-next" type="button" data-bs-target="#homepage-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+        <!-- introduction to the exhibition -->
+
+        <!-- learn more section -->
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="script.js"></script>
     </body>
+
 </html>
