@@ -26,14 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (savedTheme) {
     themeLink.href = `css/${savedTheme}.css`;
     updateActiveTheme(savedTheme);
-  } else {
-    // Set default theme if none saved
-    const defaultTheme = triggers[0]?.dataset.theme;
-    if (defaultTheme) {
-        themeLink.href = `css/${defaultTheme}.css`;
-        updateActiveTheme(defaultTheme);
-    }
-  }
+  } 
+  // If no saved theme, do nothing - main.css is already loaded by default
 
   // Update active state 
 function updateActiveTheme(themeName) {
@@ -89,6 +83,37 @@ function updateActiveTheme(themeName) {
       }
     });
   });
+
+// Reset to default theme button
+const resetButton = document.getElementById("resetTheme");
+if (resetButton) {
+  resetButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    
+    // Remove the theme stylesheet entirely to go back to main.css
+    if (themeLink && themeLink.parentNode) {
+      themeLink.href = ""; // Clear the href to unload the theme CSS
+      // OR you can remove it completely:
+      // themeLink.parentNode.removeChild(themeLink);
+    }
+    
+    // Remove saved theme from localStorage
+    localStorage.removeItem("selectedTheme");
+    
+    // Close dropdown
+    setOpen(false);
+    
+    console.log("Reset to default theme (main.css)");
+  });
+
+  // Keyboard support for reset button
+  resetButton.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      resetButton.click();
+    }
+  });
+}
 
   // Close when clicking outside
   document.addEventListener("click", (e) => {

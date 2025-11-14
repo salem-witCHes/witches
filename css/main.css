@@ -199,7 +199,10 @@ section p {
   display: block; /* ensure container is visible */
 }
 
+
+
 /* Navbar */
+/* ------------------------------------------ */
 .navbar {
     display: flex;
     padding: 24px;
@@ -209,19 +212,15 @@ section p {
 }
 
 .navbar-nav {
-    display: flex;
     padding: 8px 48px;
-    align-items: center;
     gap: 24px;
     border-radius: 80px;
     background-color: var(--surface-color);
 }
 
 .navbar-nav .nav-link {
-  display: flex;
   padding: 16px 24px !important; 
   justify-content: center;
-  align-items: center;
   gap: 10px;
   border-radius: 80px;
   color: var(--default-font-color);
@@ -233,7 +232,7 @@ section p {
   background-color: color-mix(in srgb, var(--Greyscale-50), transparent 35%);
 }
 
-.navbar .navbar-nav .nav-link.active {
+.navbar .nav-link.active {
   color: var(--surface-color) !important;    /* important! to override the variable --bs-navbar-active-color */
   text-decoration: none;
   background-color: var(--Greyscale-900);
@@ -241,14 +240,18 @@ section p {
 
 /* Change style button in nav */
 .navbar .layout-container {
-    position: absolute;
-    top: 50%;
-    right: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 24px;
+    right: 0;
     transform: translateY(-50%);
+    z-index: 1000;
 }
 
 .navbar .layout-container .layout-button {
-    background: none;
+    background: transparent;
     border: none;
     outline: none;
     cursor: pointer;
@@ -264,6 +267,8 @@ section p {
     width: 35px;
     height: 35px;
     aspect-ratio: 1/1;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .navbar .layout-container .layout-button:hover {
@@ -343,7 +348,10 @@ section p {
     color: #222; 
 }
 
+
+
 /* Carousel */
+/* ---------------------------------------- */
 .carousel {
   width: 100%;
   aspect-ratio: 16/9;   /* fixed ratio as the images */
