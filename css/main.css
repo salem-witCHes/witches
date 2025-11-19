@@ -827,3 +827,42 @@ section p {
         font-size: 18px;
     }
 }
+/* --- ERA CARDS UNDER TOGGLE --- */
+
+.era-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 16px 24px;
+    border: 1px solid var(--Greyscale-900);
+    border-radius: 16px;
+    gap: 24px;
+    background: white;
+}
+
+.era-title {
+    font-family: "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--Greyscale-900);
+}
+
+.era-description {
+    font-family: "Times New Roman", serif;
+    font-size: 16px;
+    color: var(--Greyscale-900);
+    margin: 0;
+}
+
+.era-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.era-items img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
