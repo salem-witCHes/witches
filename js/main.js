@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Load saved theme if available
-  const savedTheme = localStorage.getItem("selectedTheme");
+  const savedTheme = sessionStorage.getItem("selectedTheme");
   if (savedTheme) {
     themeLink.href = `css/${savedTheme}.css`;
     updateActiveTheme(savedTheme);
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Load new theme
       themeLink.href = `css/${theme}.css`;
-      localStorage.setItem("selectedTheme", theme);
+      sessionStorage.setItem("selectedTheme", theme);
       updateActiveTheme(theme);
       setOpen(false);  // Close the dropdown after selecting a theme
 
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     
       // Remove saved theme from localStorage
-      localStorage.removeItem("selectedTheme");
+      sessionStorage.removeItem("selectedTheme");
 
       // Clear active state from all themese 
       updateActiveTheme(null);
