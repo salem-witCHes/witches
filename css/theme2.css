@@ -18,7 +18,7 @@
 /* General styling */
 body {
     background-color: var(--background-color);
-    color: var(--background-color);
+    color: var(--antique-gold);
     font-family: var(--default-font);
 }
 
@@ -72,13 +72,53 @@ p {
 .navbar .nav-link.active {
   color: var(--porcelain-veil) !important;    /* important! to override the variable --bs-navbar-active-color */
   text-decoration: none;
-  background-color: var(--background-color);
+  background-color: var(--burnt-terracotta);
 }
 
 /* Change style button and logo color */
 .navbar svg path {
     fill: var(--antique-gold);
 }
+
+.navbar .nav-link.active {
+color: var(--porcelain-veil) !important;    /* important! to override the variable --bs-navbar-active-color */
+text-decoration: none;
+background-color: var(--burnt-terracotta);
+}
+
+@media (max-width: 991px) {
+  .custom-toggler .navbar-toggler-icon {
+      filter: none !important; /* restore color */
+      background-color: var(--background-color);
+  }
+}
+
+/* Change the rectangle color around the hamburger toggle */
+.navbar-toggler:focus {
+    border: 2px solid var(--antique-gold) !important; /* antique-gold */
+    box-shadow: none !important; /* remove any inner shadow */
+    background-clip: padding-box; /* ensure border doesn’t get clipped */
+}
+
+
+.navbar .layout-container .layout-options {
+    background-color: var(--velvet-red); /* or your preferred color */
+    border: 2px solid var(--antique-gold);    /* frame color */
+    border-radius: 0px;                      /* round corners */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* optional shadow */
+    padding: 16px;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: var(--antique-gold) !important; 
+}
+
+/* Change hamburger icon color */
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23D3B27D' stroke-width='2' stroke-linecap='round' d='M4 7h22 M4 15h22 M4 23h22'/%3E%3C/svg%3E") !important;   
+}
+
+
 
 /* Carousel */
 /* ---------------------------------------- */
@@ -93,43 +133,35 @@ p {
 .carousel::before {
   content: "";
   position: absolute;
-  top: 0px;
+  top: -150px;          /* adjust vertical position */
   left: 50%;
-  width: 200px;
-  height: 100px;
   transform: translateX(-50%);
-  background: url("img/dark-romanticism/carousel-frame.png") no-repeat center / contain;   
-  z-index: 9999;
+  width: 300px;         /* width of your image */
+  height: 150px;        /* height of your image */
+  background-image: url("img/dark-romanticism/carousel-frame.png");
+  background-size: contain; /* maintain aspect ratio */
+  background-repeat: no-repeat;
+  z-index: 999;          /* above carousel */
+  pointer-events: none; /* allow clicks on carousel */
 }
 
-/* .carousel-control-prev,
+/* change the color of carousel arrows */
+.carousel-control-prev,
 .carousel-control-next {
-  width: 10%;
-  opacity: 0.8;
-  top: 50%;
-  transform: translateY(-50%);
-  fill: var(--antique-gold);
+  filter: invert(59%) sepia(39%) saturate(2385%) hue-rotate(35deg) brightness(95%) contrast(90%);
 }
 
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  opacity: 1;
-}
-
-*/
-
-
+/*
 .introduction h2::after {
   content: "";
   display: block;
-  width: 60px;                         /* desired width of your SVG */
-  height: 60px;                        /* desired height of your SVG */
-  margin: 1em auto 0;                  /* spacing and centering */
-  
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><path d='' stroke-width='2'/></svg>") no-repeat center/contain;
-  
+  width: 60px;                         
+  height: 2px;                        */
+  /* margin: 1em auto 0;                  /* spacing and centering */
+  /* background-image: url("img/dark-romanticism/after-line.png") no-repeat center/contain; 
   line-height: 0;                       /* removes extra black line */
-}
+/* } */
+
 
 .introduction,
 .link-documentation {
@@ -151,16 +183,7 @@ p {
 
 .link-documentation a:hover {
   background-color: var(--burnt-terracotta);
-  color: var(--antique-gold);
+  color: var(--porcelain-veil);
   /* transform: scale(1.05); */         /* subtle zoom */
 }
 
-/* Decorative line after heading */
-.link-documentation h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 2px;
-  background: var(--default-font-color);
-  margin: 1em auto 1.2em;
-}
