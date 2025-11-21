@@ -8,11 +8,12 @@
     --background-color: #E9D9B6;
     --witchflame-red: #9F3F33;
     --cursed-walnut: #4B342C;
+    --brown: #7F552B;
 }
 
 /* General styling */
 body {
-    background-image: url("img/art-nouveau/background.png");
+    background-image: url("../img/art-nouveau/background.png");
     background-size: cover;        /* make it fill the page */
     background-repeat: no-repeat;  /* prevent tiling */
     background-position: center;   /* center the image */
@@ -32,6 +33,11 @@ p {
   font-family: var(--text-font);
   color: var(--cursed-walnut);
 }
+
+.forest-container {
+  background: white;
+}
+
 
 /* Navbar */
 /* ------------------------------------------ */
@@ -61,7 +67,8 @@ p {
 
 .navbar-nav .nav-link:hover {
   text-decoration: none;
-  background-color: var();
+  background-color: var(--witchflame-red);
+  color: var(--background-color)
 }
 
 .navbar .nav-link.active {
@@ -90,16 +97,42 @@ background-color: var(--burnt-terracotta);
 
 /* Change the rectangle color around the hamburger toggle */
 .navbar-toggler:focus {
-    border: 2px solid var(--antique-gold) !important; /* antique-gold */
+    border: 2px solid var(--cursed-walnut) !important; /* antique-gold */
     box-shadow: none !important; /* remove any inner shadow */
     background-clip: padding-box; /* ensure border doesn’t get clipped */
 }
 
-
 .navbar .layout-container .layout-options {
-    background-color: var(--velvet-red); /* or your preferred color */
-    border: 2px solid var(--antique-gold);    /* frame color */
-    border-radius: 0px;                      /* round corners */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* optional shadow */
+    display: none; /* hidden by default */
+    position: absolute;
+    top: 50px; /* adjust based on where you want it */
+    right: 0;
+    flex-direction: column;
+    gap: 12px;
+    width: 150px;                 /* match image width */
+    height: 600px;
     padding: 16px;
+    list-style: none;
+    margin: 0;
+    background-image: url("../img/art-nouveau/4.png");
+    background-size: 100% 100%;   /* stretch image to fill box exactly */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+}
+
+
+.navbar .layout-container .layout-button {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

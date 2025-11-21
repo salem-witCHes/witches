@@ -139,10 +139,10 @@ background-color: var(--burnt-terracotta);
   transform: translateX(-50%);
   width: 300px;             /* or % for responsive scaling */
   height: 150px;            /* adjust as needed */
-  background-image: url('img/dark-romanticism/carousel-frame.png');
+  /* background-image: url('../img/dark-romanticism/carousel-frame.png');
   background-size: contain;  /* scale the image proportionally */
-  background-repeat: no-repeat;
-  background-position: center;
+  /* background-repeat: no-repeat;
+  background-position: center; */
   z-index: 9999;              /* above carousel images but below captions if needed */
   pointer-events: none;     /* let clicks pass through */
 }
@@ -153,16 +153,16 @@ background-color: var(--burnt-terracotta);
   filter: invert(59%) sepia(39%) saturate(2385%) hue-rotate(35deg) brightness(95%) contrast(90%);
 }
 
-/*
 .introduction h2::after {
   content: "";
   display: block;
   width: 60px;                         
-  height: 2px;                        */
-  /* margin: 1em auto 0;                  /* spacing and centering */
-  /* background-image: url("img/dark-romanticism/after-line.png") no-repeat center/contain; 
+  height: 2px;
+  margin: 1em auto 0;                  /* spacing and centering */
+  background-image: url("../img/dark-romanticism/after-line.png") no-repeat center/contain; 
   line-height: 0;                       /* removes extra black line */
-/* } */
+  z-index: 9999;
+}
 
 
 .introduction,
