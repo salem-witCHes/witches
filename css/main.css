@@ -934,6 +934,17 @@ footer a {
     height: 100%;
 }
 
+/* Ho aggiunto questo, controllare se va bene con tutto il resto */
+.era-card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+    gap: 12px;
+    height: 100%;
+}
+
 /* Wrap title + description in a header div */
 .era-card-header {
     flex: 0 0 auto; /* takes only its natural height */
