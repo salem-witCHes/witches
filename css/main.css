@@ -1078,7 +1078,10 @@ nav.navbar {
 }
 
 
-/* Chronology Timeline */
+/* =========================================
+   CHRONOLOGY TIMELINE (Smart Logic Fix)
+   ========================================= */
+
 .chronology-container {
     display: flex;
     flex-direction: column;
@@ -1112,7 +1115,7 @@ nav.navbar {
     z-index: 1;
 }
 
-/* --- THE LINES (Positioning) --- */
+/* --- THE LINE (Positioning Container) --- */
 .line {
     display: flex;
     width: 100%;
@@ -1124,6 +1127,7 @@ nav.navbar {
 }
 
 /* SMART LOGIC: If the line contains a card with class "left-card", move it LEFT */
+/* This overrides the default right alignment based on your specific HTML class */
 .line:has(.left-card) {
     justify-content: flex-start;
 }
@@ -1132,7 +1136,7 @@ nav.navbar {
 .card {
     display: flex;
     /* Force standard row direction. 
-       We rely on your HTML order (Text-Image vs Image-Text) to be correct. */
+       We trust your HTML structure (Text-First for Left, Image-First for Right) */
     flex-direction: row !important; 
     
     border: 1px solid var(--Greyscale-900);
@@ -1168,7 +1172,6 @@ nav.navbar {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Reset text alignment */
     text-align: left; 
 }
 
@@ -1177,7 +1180,7 @@ nav.navbar {
     font-family: "Times New Roman";
 }
 
-/* Black dot */
+/* Black dot positioning */
 .ellipse,
 .ellipse-2 {
     width: 20px;
@@ -1191,62 +1194,72 @@ nav.navbar {
     z-index: 0;
 }
 
+/* =========================================
+   MOBILE RESPONSIVENESS (Vertical Stack)
+   ========================================= */
 @media (max-width: 768px) {
-/* Center the entire timeline content horizontally */
-    .timeline-lines {
-        /* Force full width and center children lines */
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Center all lines */
+    
+    /* 1. Hide the central desktop line */
+    .timeline-lines::before {
+        display: none;
     }
 
-    /* 2. Make each card line take full width, and stack cards vertically */
+    /* 2. Force all lines to align to the Left */
     .line {
-        width: 100%;
-        display: flex;
-        justify-content: center; /* Center the card horizontally */
-        align-items: flex-start;
-        margin-bottom: 20px; /* Add spacing between lines */
+        justify-content: flex-start !important;
+        flex-direction: row !important;
+        padding-left: 10px;
+        margin-bottom: 30px;
+        
+        /* Create a new timeline line on the far left */
+        border-left: 2px solid var(--Greyscale-900); 
+        margin-left: 10px;
+        padding-left: 20px; 
     }
 
-    /* 3. Make the card itself responsive and centered */
-    .card {
-        /* Allow card to shrink, but stop at a readable minimum */
-        width: 85%; /* Use a large percentage of the screen width */
-        min-width: 250px; /* Don't allow it to shrink below this size */
-        /* Center the card if its width is less than 100% of its container */
-        margin: 0 auto; 
-        /* On mobile, cards should stack their content (image/text) vertically */
-        flex-direction: column;
-        align-self: center;
-    }
-
-    /* OVERRIDE SPECIFICITY TO CENTER CARDS *** */
-    .line:nth-child(odd),
-    .line:nth-child(even) {
-        justify-content: center; /* This overrides the flex-start/flex-end rules */
+    /* 3. Position the Dot on the new Left Line */
+    .ellipse,
+    .ellipse-2 {
+        left: -11px; /* Center dot on the 2px border */
+        transform: none; 
+        top: 0; 
+        z-index: 5;
     }
     
-    /* 4. Fix image/text alignment within the card on mobile */
-    .card .picture, .card .text {
+    /* 4. Stack Card Content Vertically */
+    .card {
         width: 100%;
+        max-width: 100%;
+        margin: 0;
+        
+        /* Stack Image on Top, Text on Bottom */
+        flex-direction: column !important; 
+        height: auto; 
     }
-    /* Fix image radius for stacked layout */
-    .card .picture {
-        /* Remove specific left-side rounding */
-        border-radius: 8px 8px 0 0; 
+    
+    /* 5. Reset Image/Text Widths for Vertical Stack */
+    .card .picture, 
+    .card .text {
+        width: 100%;
+        flex: none; 
     }
-    .left-card .picture {
-        /* Override specific left-side rounding for consistency */
-        border-radius: 8px 8px 0 0; 
+    
+    /* 6. Fix Image Height */
+    .picture {
+        height: 200px; 
     }
-
-    /* put all captions at the bottom of the images */
-    .card.left-card {
-    flex-direction: column-reverse;
+    
+    .card .picture img {
+        border-radius: 0; 
+    }
+    
+    /* 7. Ensure text is readable */
+    .text {
+        padding: 20px;
+        text-align: left !important;
     }
 }
+
 
 
 /* ITEM PAGE */
@@ -1307,31 +1320,3 @@ nav.navbar {
 
 
 
-/* --- MOBILE RESPONSIVENESS --- */
-@media (max-width: 768px) {
-    .timeline-lines::before {
-        display: none;
-    }
-
-    .line {
-        justify-content: flex-start !important; /* Force Left align */
-        padding-left: 10px;
-        margin-bottom: 20px;
-        border-left: 2px solid var(--Greyscale-900); /* New line on left */
-        margin-left: 20px;
-        padding-left: 20px;
-    }
-
-    .ellipse,
-    .ellipse-2 {
-        left: -11px;
-        transform: none;
-        top: 20px;
-        z-index: 5;
-    }
-    
-    .card {
-        width: 100%;
-        margin: 0;
-    }
-}
