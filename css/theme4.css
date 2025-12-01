@@ -3,7 +3,8 @@
    ========================================= */
 
 /* --- 1. Global Variables & Fonts --- */
-.chronological-page {
+/* Apply variables to the root or body so they are globally accessible */
+:root {
     /* Define Windows 95 Palette */
     --win-teal: #008081;
     --win-grey: #C3C3C3;
@@ -18,17 +19,16 @@
     --surface-color: var(--win-grey);
     --default-font-color: var(--win-text);
     
-    /* Use the pixel font linked in your HTML (Press Start 2P) 
-       or fallback to monospace if 'pix M 8pt' isn't available */
-/* CORRECT Windows 95 Font */
-    --default-font: 'W95FA', 'MS Sans Serif', sans-serif;}
+    /* CORRECT Windows 95 Font */
+    --default-font: 'W95FA', 'MS Sans Serif', sans-serif;
+}
 
-/* Apply global font & background */
-body.chronological-page {
+/* Apply global font & background to the whole body (All Pages) */
+body {
     background-color: var(--background-color);
     font-family: var(--default-font);
     
-    /* W95FA looks best at 16px (1rem) or 13px */
+    /* Updated Size from Figma (Pix M 8pt approx 16px) */
     font-size: 16px; 
     
     /* Remove letter-spacing, Windows 95 didn't have it */
@@ -38,13 +38,14 @@ body.chronological-page {
     image-rendering: pixelated; 
     -webkit-font-smoothing: none;
 }
+
 /* Remove all rounded corners globally for this theme */
-.chronological-page * {
+* {
     border-radius: 0 !important;
 }
 
 /* --- 2. Navbar Styling --- */
-.chronological-page .navbar {
+.navbar {
     background-color: var(--win-grey);
     border-bottom: 2px solid var(--win-dark-grey);
     box-shadow: inset 1px 1px 0px var(--win-white);
@@ -52,17 +53,17 @@ body.chronological-page {
 }
 
 /* Nav Links as Windows Buttons */
-.chronological-page .navbar-nav {
+.navbar-nav {
     background-color: transparent;
     gap: 10px;
 }
 
-.chronological-page .nav-link {
+.nav-link {
     background-color: var(--win-grey);
     color: var(--win-text) !important;
     padding: 10px 20px !important;
     font-family: var(--default-font);
-    font-size: 10px; /* Adjust for pixel font */
+    font-size: 14px; /* Slightly smaller than body text for nav */
     
     /* The Classic "Outset" 3D Border */
     box-shadow: inset 2px 2px 0px var(--win-white),
@@ -73,8 +74,8 @@ body.chronological-page {
 }
 
 /* Active State (Depressed Button) */
-.chronological-page .nav-link.active,
-.chronological-page .nav-link:active {
+.nav-link.active,
+.nav-link:active {
     background-color: #E6E6E6;
     /* The Classic "Inset" 3D Border */
     box-shadow: inset 2px 2px 0px var(--win-dark-grey),
@@ -83,14 +84,14 @@ body.chronological-page {
 }
 
 /* Hover State */
-.chronological-page .nav-link:hover {
-    background-color: var(--win-grey); /* Keep grey */
+.nav-link:hover {
+    background-color: var(--win-grey); 
     text-decoration: none;
 }
 
 
-/* --- 3. Toggle Section (Chronological vs Eras) --- */
-.chronological-page .toggle-frame {
+/* --- 3. Toggle Section --- */
+.toggle-frame {
     background-color: var(--win-grey);
     border: 2px solid var(--win-white);
     border-right-color: var(--win-dark-grey);
@@ -99,14 +100,14 @@ body.chronological-page {
     padding: 12px;
 }
 
-.chronological-page .toggle-text {
+.toggle-text {
     font-family: var(--default-font);
-    font-size: 12px;
+    font-size: 16px;
     color: var(--win-text);
 }
 
 /* Customizing the Pill to look like a Windows Well */
-.chronological-page .toggle-pill {
+.toggle-pill {
     background-color: var(--win-white);
     border: 2px solid var(--win-dark-grey);
     border-right-color: var(--win-white);
@@ -114,34 +115,33 @@ body.chronological-page {
     box-shadow: inset 2px 2px 0px var(--win-black);
 }
 
-.chronological-page .toggle-knob {
+.toggle-knob {
     background-color: var(--win-grey);
     border: 1px solid var(--win-black);
     box-shadow: inset 1px 1px 0px var(--win-white),
                 2px 2px 0px var(--win-black);
-    border-radius: 0; /* Square knob */
+    border-radius: 0; 
 }
 
 /* --- 4. Chronology Container --- */
-.chronological-page .chronology-container {
+.chronology-container {
     background-color: var(--win-teal);
     padding-top: 40px;
 }
 
-.chronological-page .timeline-lines::before {
-    background-color: var(--win-grey); /* Timeline vertical line is grey */
-    width: 4px; /* Slightly thicker */
+.timeline-lines::before {
+    background-color: var(--win-grey); 
+    width: 4px; 
     border-left: 2px solid var(--win-dark-grey);
     border-right: 2px solid var(--win-white);
 }
 
 
-/* --- 5. Timeline Icons (The Fix We Made) --- */
-.chronological-page .ellipse,
-.chronological-page .ellipse-2 {
+/* --- 5. Timeline Icons --- */
+.ellipse,
+.ellipse-2 {
     width: 32px;
     height: 32px;
-    /* Using the standard relative path */
     background: url("../img/minesweeper-square.svg") center/contain no-repeat;
     border-radius: 0;
     position: absolute;
@@ -151,88 +151,144 @@ body.chronological-page {
     z-index: 10;
 }
 
-/* Mobile override for the line/icon background logic */
+/* Mobile override */
 @media (max-width: 768px) {
-    .chronological-page .ellipse,
-    .chronological-page .ellipse-2 {
+    .ellipse,
+    .ellipse-2 {
         background-color: var(--win-teal) !important;
     }
-    .chronological-page .line {
+    .line {
         border-left-color: var(--win-grey);
     }
 }
 
 
-/* --- 6. Timeline Cards (The Figma Design) --- */
+/* --- 6. Timeline Cards (FIXED ALIGNMENT) --- */
 
-.chronological-page .card {
-    /* 1. Main Window Box */
+.card {
+    /* 1. The Main Outer Window */
     background-color: var(--win-grey);
-    border: 2px solid var(--win-white); /* Top/Left Highlight */
-    border-right-color: var(--win-dark-grey); /* Bot/Right Shadow */
-    border-bottom-color: var(--win-dark-grey);
-    box-shadow: 2px 2px 0px var(--win-black); /* Drop Shadow */
     
-    padding: 4px; /* Gap between border and content */
+    /* Classic "Outset" Border (White Top/Left, Black Bot/Right) */
+    border-top: 2px solid var(--win-white);
+    border-left: 2px solid var(--win-white);
+    border-right: 2px solid var(--win-black);
+    border-bottom: 2px solid var(--win-black);
+    
+    /* The bevel shadow inside the border */
+    box-shadow: 1px 1px 0px var(--win-dark-grey) inset;
+    
+    padding: 4px; /* Internal spacing between border and content */
+    
+    /* Layout */
     display: flex;
-    gap: 0;
+    align-items: stretch; /* vital: makes image and text same height */
+    gap: 4px; /* Space between image and text box */
 }
 
-/* The Image Area */
-.chronological-page .picture,
-.chronological-page .picture-2 {
-    border: 2px solid var(--win-dark-grey);
-    border-right-color: var(--win-white);
-    border-bottom-color: var(--win-white);
-    background-color: var(--win-grey);
-    margin: 4px; /* Space inside the window */
+/* --- The Image Area --- */
+.picture,
+.picture-2 {
+    width: 140px; /* Fixed width matching Figma */
+    flex-shrink: 0; /* Prevent shrinking */
+    
+    /* Classic "Inset" Border (Dark Top/Left, White Bot/Right) */
+    border-top: 2px solid var(--win-dark-grey);
+    border-left: 2px solid var(--win-dark-grey);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    
+    background-color: var(--win-white); /* White bg behind image */
+    margin: 0; 
 }
 
-/* The Text Area */
-.chronological-page .text {
-    padding: 10px;
+.picture img, 
+.picture-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- The Text Container (The Right-side Window Pane) --- */
+.text {
+    flex-grow: 1; /* Vital: Forces this box to fill ALL remaining space */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 0; /* Remove padding so blue header touches edges */
+    
+    /* "Inset" Border matching the image style */
+    border-top: 2px solid var(--win-dark-grey);
+    border-left: 2px solid var(--win-dark-grey);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    
+    background: var(--win-grey);
 }
 
-/* Title Styling (Simulating the Blue Header) */
-.chronological-page .text-wrapper {
+/* --- The Blue Header (Title) --- */
+.text-wrapper {
     background-color: var(--win-blue);
     color: var(--win-white);
     font-family: var(--default-font);
-    font-size: 12px; /* Figma: 16px, but pixel fonts run large */
-    padding: 8px;
-    margin-bottom: 8px;
-    line-height: 1.4;
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 8px; /* Internal padding for the title text */
     
-    /* Inset shadow for title bar */
-    box-shadow: inset 1px 1px 0px var(--win-white); 
+    /* This ensures the wrapper fills the height if text is short */
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
 }
 
-/* Date/Subtitle Styling */
-.chronological-page .text i {
-    color: var(--win-text);
-    font-family: var(--default-font);
-    font-size: 10px;
+/* The Folder Icon */
+.text-wrapper::before {
+    content: '';
+    display: inline-block;
+    width: 16px; 
+    height: 16px;
+    background: url('../img/windows95-folder.svg') no-repeat center/contain;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    vertical-align: middle;
+}
+
+/* --- The Grey Body (Date) --- */
+/* We style the <i> tag to look like the bottom section */
+.text-wrapper i {
+    display: block; /* Makes it a block to fill width */
     font-style: normal;
-    display: block;
-    margin-top: 8px;
-    padding: 4px;
-    background: transparent;
+    background-color: var(--win-grey); 
+    color: var(--win-text);
+    
+    /* MAGIC TRICK: Negative margins pull the grey box 
+       over the blue container's padding to touch the edges */
+    margin-left: -8px; 
+    margin-right: -8px;
+    margin-bottom: -8px; /* Push to very bottom */
+    margin-top: 8px;     /* Push away from title */
+    
+    /* Add padding back to the text inside */
+    padding: 8px 12px;
+    
+    /* Add a white divider line between Blue and Grey */
+    border-top: 2px solid var(--win-white); 
+    
+    /* Ensure it fills vertical space */
+    flex-grow: 1; 
 }
 
 
 /* --- 7. Footer --- */
-.chronological-page footer {
+footer {
     background-color: var(--win-grey);
     color: var(--win-text);
     border-top: 2px solid var(--win-white);
     font-family: var(--default-font);
-    font-size: 10px;
+    font-size: 12px;
 }
 
-.chronological-page .footer-separator {
+.footer-separator {
     background: var(--win-dark-grey);
     border-bottom: 1px solid var(--win-white);
 }
