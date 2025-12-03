@@ -1,5 +1,3 @@
-Css
-
 
 /* Main CSS */
 
@@ -1259,10 +1257,40 @@ nav.navbar {
 /* -------------------------
             MAP 
 ---------------------------- */
+.map-container {
+  max-width: 750px;
+  margin: 0 auto 30px auto; /* center the container horizontally */
+  padding: 10px;
+}
+
 .map-container svg {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 767.98px) {
+    
+    /* Ensure the map container has enough vertical space */
+    .map-container {
+        /* On small screens, let it take up almost the full width of the column */
+        width: 90%; 
+        
+        /* Keep it centered */
+        margin: 0 auto 20px auto !important; 
+        
+        /* Prevent it from being too tiny by setting a minimum width */
+        min-width: 300px;
+    }
+    
+    /* Center the SVG within its container if it's smaller than the container */
+    .map-container svg {
+        /* Ensure the SVG itself doesn't exceed the container size */
+        max-height: 400px; 
+        /* The object-fit property is useful for images, but for inline SVG, 
+           we rely on viewBox and width:100% */
+    }
 }
 
 #first-room,
@@ -1291,6 +1319,7 @@ nav.navbar {
 #text-third-room, 
 #text-fourth-room {
   font-family: var(--default-font);
+  font-weight: 600;
 }
 
 #door1, 
@@ -1310,7 +1339,18 @@ nav.navbar {
 .map-description {
   border: 2px solid var(--Greyscale-900);
   border-radius: 8px;
+  padding: 20px;
 }
+
+.room-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.room-description {
+
+}
+
 
 /* ITEM PAGE */
 /* Ensures the top row containers have equal height on desktop/tablet */

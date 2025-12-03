@@ -12,7 +12,7 @@
     /* colors */
     --background-color: black;
     --tropical-indigo: #8386f5ff;
-    --erin-green: #1afe49ff;
+    --erin-green: #1afe49;
     --electric-cyan: #00F6FF; 
     --magenta-glitch: #E600FF;
     --violet-blue: #3d43b4ff;
@@ -510,6 +510,65 @@ footer a:hover {
 }
 
 
+
+/* -------------------------------
+        MAP 
+--------------------------------- */
+#museum-walls {
+  fill: var(--erin-green);
+  filter: drop-shadow(0 0 6px var(--erin-green));
+}
+
+/* #door1, 
+#door2, 
+#door3, 
+#door4, 
+#door5, 
+#door6, 
+#door7, 
+#door8, 
+#door9, 
+#door10, 
+#door11 {
+  fill: transparent !important;
+} */
+
+#entrance-door {
+  stroke: var(--erin-green);
+}
+
+#text-first-room, 
+#text-second-room, 
+#text-third-room, 
+#text-fourth-room {
+  font-family: var(--font-default) !important;
+  fill: var(--erin-green) !important;
+  font-weight: 600;
+}
+
+/* Define the hover effect */
+#first-room:hover,
+#second-room:hover,
+#third-room:hover, 
+#fourth-room:hover {
+  /* This rule will override the default rule above */
+  fill: var(--erin-green) !important; 
+  filter: drop-shadow(0 0 10px var(--erin-green));
+}
+
+#first-room:hover + #text-first-room,
+#second-room:hover + #text-second-room,
+#third-room:hover + #text-third-room, 
+#fourth-room:hover + #text-fourth-room {
+  fill: var(--magenta-glitch) !important;
+  text-shadow: 0 0 6px var(--magenta-glitch);
+} 
+
+.map-description {
+  border: 2px solid var(--erin-green);
+  margin-top: 25px;
+}
+
 /* --------------------------------
     EXHIBITION PAGE 
 --------------------------------- */
@@ -530,6 +589,10 @@ footer a:hover {
 
 .toggle-knob {
   background: var(--erin-green);
+}
+
+#toggle-icon {
+  fill: black !important;
 }
 
 /* ----- Eras page ----- */
@@ -680,3 +743,7 @@ footer a:hover {
     animation: none !important;
   }
 }
+
+
+
+

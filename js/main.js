@@ -262,8 +262,8 @@ function showRoomDescription(roomId) {
 
     // 2. Build the new HTML content
     const newHTML = `
-        <h3 class="mb-3">${room.title}</h3>
-        <p>${room.description}</p>
+        <h3 class="room-title">${room.title}</h3>
+        <p class="room-description">${room.description}</p>
     `;
 
     // 3. Inject the new HTML into the target div
@@ -272,37 +272,35 @@ function showRoomDescription(roomId) {
 }
 
 // Attach Event Listeners on Load
-// document.addEventListener('DOMContentLoaded', () => {
-//     // 1. Get ALL the rooms that you want to be interactive
-//     const interactiveRooms = document.querySelectorAll('#first-room, #second-room, #third-room, #fourth-room'); 
-
-//     // 2. Loop through each room and attach the listener
-//     interactiveRooms.forEach(room => {
-//         room.addEventListener('click', function() {
-//             // 'this' refers to the specific room path that was clicked
-//             const roomId = this.id; 
-            
-//             // Call your function, passing the room's ID
-//             showRoomDescription(roomId);
-//         });
-//     });
-// });
-
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Test with just ONE room using getElementById
-    const room1 = document.getElementById('first-room');
+    // 1. Define a list of ALL interactive room IDs
+    const roomIds = [
+        'first-room', 
+        'second-room', 
+        'third-room', 
+        'fourth-room'
+    ];
 
-    if (room1) {
-        // We know the element was found, so we can attach the listener
-        room1.addEventListener('click', function() {
-            showRoomDescription(this.id);
-            // Optional: Log to the console to confirm a click was registered
-            console.log("Clicked:", this.id); 
-        });
-    } else {
-        // Log an error if the element wasn't found (CRITICAL for debugging)
-        console.error("CRITICAL ERROR: 'first-room' SVG element not found in the DOM.");
-    }
-    
-    // You'd repeat the if(roomX) block for all other rooms
+    // 2. Loop through the list to attach listeners to all rooms
+    roomIds.forEach(roomId => {
+        const roomElement = document.getElementById(roomId);
+
+        // Check if the element was successfully found
+        if (roomElement) {
+            roomElement.addEventListener('click', function() {
+                // 'this.id' is the ID of the path that was clicked
+                showRoomDescription(this.id);
+                console.log("Clicked:", this.id);
+            });
+            
+            // Optional: You can add an extra class here for visual feedback
+            // roomElement.classList.add('interactive-room'); 
+        } else {
+            console.warn(`Warning: SVG element with ID '${roomId}' not found in the DOM.`);
+        }
+    });
 });
+
+
+
+
