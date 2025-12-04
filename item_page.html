@@ -121,69 +121,70 @@
 
             <div class="thematic-divider-nav"></div>
             
+
+   
             <div class="container">
                 <div class="row gx-0 mb-4 item-table">
-                    <div class="col-12 col-md-6 col-lg-6 d-flex">
+                    <div class="col-12 col-md-6 col-lg-6 d-flex mb-4 mb-md-0">
                         <div class="item-box w-100 me-md-2">
                             <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" aria-label="Enlarge Image" class="d-block w-100 h-100">
-                                <img src="img/collection/Circe.jpg" alt="Circe" id="itemImage">
+                                <img src="img/collection/Circe.jpg" alt="" id="item-image-display">
                             </a>
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-6 col-lg-6 mt-4 mt-md-0 d-flex">
+                    <div class="col-12 col-md-6 col-lg-6 d-flex">
                         <div class="table-box w-100 ms-md-2 p-">
                             <table class="table">
                                 <thead>
-                                    <tr><th colspan="2">Item Title</th></tr>
+                                    <tr><th colspan="2" id="item-title-display">Circe Offering the cup to Odysseus</th></tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>Info header 1</th>
-                                        <td>Lorem ipsum dolor sit amet consectetur</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Info header 2</th>
-                                        <td>Lorem ipsum dolor sit amet consectetur</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Info header 3</th>
-                                        <td>Lorem ipsum dolor sit amet consectetur</td>
-                                    </tr>
-                                </tbody>
+                                <tbody id="metadata-tbody">
+                                    </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
                 <div class="row g-4 pb-4">
                     <div class="col-12">
                         <div class="text-box">
-                            <p>
+                            
+                            <div class="mb-3">
+                                <button class="btn btn-sm btn-outline-dark me-1" onclick="renderText('short')">Shorter Text</button>
+                                <button class="btn btn-sm btn-outline-dark me-1" onclick="renderText('long')">Longer Text</button>
+                                <button class="btn btn-sm btn-outline-dark me-1" onclick="renderText('simple')">Simple</button>
+                                <button class="btn btn-sm btn-outline-dark" onclick="renderText('academic')">Advanced</button>
+                            </div>
+
+                            <p id="item-description-display">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
-                            <button class="btn btn-sm mb-4" id="showLess" onclick="showLess()">Show less</button>
-                            <button class="btn btn-sm mb-4" id="showMore" onclick="showMore()">Show more</button>
                         </div>
                     </div>
+                    
                     <div class="card-footer d-flex justify-content-between">
-                        <a href="#" type="button" class="btn m-auto" onclick="hideFullInfo()">Next</a>
+                        <button type="button" class="btn m-auto" id="btn-prev">Previous</button>
+
+                        <button type="button" class="btn m-auto" id="btn-next">Next</button>
                     </div>
                 </div>
             </div>
 
-            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-xl modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="imageModalLabel">Enlarged View: Circe</h5>
+                            <h5 class="modal-title" id="modal-title-display">Enlarged View</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            <img src="img/collection/Circe.jpg" alt="Circe Full Size" class="img-fluid" style="max-height: 85vh; width: auto">
+                            <img src="img/collection/Circe.jpg" alt="Circe" id="modal-image-display" class="img-fluid" style="max-height: 85vh; width: auto">
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <div class="footer-separator"></div>
 

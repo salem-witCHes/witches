@@ -1381,7 +1381,7 @@ nav.navbar {
 }
 
 .table-box {
-    padding: 1.5rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
     height: 100%;
 }
 
@@ -1435,4 +1435,41 @@ nav.navbar {
   background-color: var(--default-font-color);
   color: var(--background-color);
   /* transform: scale(1.05); */         /* subtle zoom */
+}
+
+
+/* Styling for the enlarged image in the modal */
+
+/* 1. Target the Modal Body: Remove internal padding */
+#imageModal .modal-body {
+    /* Remove default padding to push content to the edges */
+    padding: 0 !important; 
+    
+    /* Ensure the background of the image area is dark (or whatever theme color you prefer) */
+    background-color: transparent;
+    /* The default modal background is often white. Setting this ensures a clean, dark viewing experience */
+}
+
+/* 2. Target the Image Itself */
+#imageModal .modal-body img {
+    /* Ensure the image scales up without being constrained by hidden spaces */
+    width: auto !important;
+    
+    /* Reiterate the max-height to ensure the image fits the viewport height */
+    max-height: 95vh !important; 
+    
+    /* Optional: Add a smooth transition when the modal opens/closes */
+    transition: all 0.3s ease-in-out;
+}
+
+/* 3. Optional: Style the Modal Content container */
+#imageModal .modal-content {
+    /* Remove default rounded corners if you want sharp edges on the image view */
+    border-radius: 0;
+    
+    /* Ensure no unwanted internal space */
+    border: none;
+    
+    /* Match the body background */
+    background-color: transparent; 
 }
