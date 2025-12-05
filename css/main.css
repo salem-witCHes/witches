@@ -776,148 +776,120 @@ footer a {
 
 /* ----------------- Toggle Section ----------------- */
 
-/* Toggle Frame - centered under navbar */
+/* The Rectangle Container */
 .toggle-frame {
+    /* 1. Stickiness */
+    position: sticky;
+    top: 96px; /* Matches default navbar height */
+    z-index: 990;
+
+    /* 2. Rectangle Styling */
+    width: 100%;
+    background-color: white;    
+    padding: 16px 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    /* 3. FLEX LAYOUT (The Fix) */
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 24px;
-    position: sticky;      /* stick under navbar */
-    top: 80px;             /* adjust based on navbar height */
-    z-index: 1000;
-    background: white;     /* ensures visibility */
-    padding: 8px 0;
+    justify-content: space-between; /* Distribute space */
 }
 
-/* Toggle Pill */
+/* LEFT SIDE: Takes up exactly 50% of free space */
+#labelChrono {
+    flex: 1; /* This forces it to take up all space to the left */
+    text-align: right; /* Pushes text towards the center */
+    padding-right: 24px; /* Gap from toggle */
+    white-space: nowrap;
+}
+
+/* CENTER: Fixed Width Toggle */
 .toggle-pill {
-    width: 128px;
+    flex: 0 0 128px; /* Do not grow, Do not shrink, Stay 128px */
     height: 68px;
-    padding: 4px;            /* distance from pill edge to knob */
+    padding: 4px;            
     border-radius: 200px;
     border: 1px solid #1A1A1A;
     position: relative;
     cursor: pointer;
+    background: white;
 }
 
-/* Knob inside the pill */
+/* RIGHT SIDE: Takes up exactly 50% of free space */
+#labelEras {
+    flex: 1; /* Forces it to match the width of the left side */
+    text-align: left; /* Pushes text towards the center */
+    padding-left: 24px; /* Gap from toggle */
+    white-space: nowrap;
+}
+
+/* --- Internal Toggle Parts (Knob/Icons) --- */
 .toggle-knob {
     position: absolute;
-    width: 60px;               /* knob size */
+    width: 60px;               
     height: 60px;
     border-radius: 50%;
     background: #191919;
-    top: 4px;                  /* distance from pill top */
-    left: 4px;                 /* initial left position */
+    top: 4px;                  
+    left: 4px;                 
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;                /* above inactive icon */
+    z-index: 2;                
     transition: left 0.3s ease;
 }
 
-/* Active icon inside knob */
 .toggle-knob img {
-    width: 40px;               /* icon size smaller than knob */
+    width: 40px;               
     height: 40px;
     object-fit: contain;
-    margin: 10px;              /* padding inside knob */
+    margin: 10px;              
 }
 
-/* Inactive icon outside knob */
 .inactive-icon {
     position: absolute;
     width: 40px;
     height: 40px;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1;                 /* behind knob */
-    transition: left 0.3s ease; /* smooth movement */
-    left: 4px;                  /* default distance from pill edge */
+    right: 4px; /* Default position for inactive icon */
+    z-index: 1;                 
+    transition: left 0.3s ease; 
 }
 
-/* Labels */
+/* Text Styling */
 .toggle-text {
     font-size: 24px;
     font-family: "Times New Roman";
     cursor: pointer;
     transition: font-weight 0.3s ease;
+    color: var(--default-font-color);
 }
 
 .active-text {
     font-weight: 700;
 }
 
-/* ----------------- Responsive Adjustments ----------------- */
-
+/* Mobile Adjustment: Make text smaller so it doesn't break */
 @media (max-width: 480px) {
     .toggle-frame {
-        flex-direction: column;
-        gap: 12px;
-        top: 70px;
+        padding: 10px 5px;
+        top: 80px; /* Adjust for smaller mobile navbar */
     }
-
-    .toggle-text {
-        font-size: 20px;
-        text-align: center;
-    }
-
+    .toggle-text { font-size: 16px; }
+    #labelChrono { padding-right: 10px; }
+    #labelEras { padding-left: 10px; }
     .toggle-pill {
-        width: 100px;
+        flex: 0 0 100px; /* Smaller toggle on mobile */
         height: 50px;
-        padding: 3px;
     }
-
     .toggle-knob {
-        width: 45px;
-        height: 45px;
-        top: 2.5px;
-        left: 2.5px;
+        width: 45px; height: 45px; top: 2.5px; left: 2.5px;
     }
-
-    .toggle-knob img {
-        width: 30px;
-        height: 30px;
-        margin: 7.5px;
-    }
-
-    .inactive-icon {
-        width: 30px;
-        height: 30px;
-        left: 2.5px;             /* padding from pill edge */
-    }
+    .toggle-knob img { width: 30px; height: 30px; margin: 7px; }
+    .inactive-icon { width: 30px; height: 30px; }
 }
-
-@media (max-width: 360px) {
-    .toggle-pill {
-        width: 90px;
-        height: 45px;
-    }
-
-    .toggle-knob {
-        width: 40px;
-        height: 40px;
-        top: 2.5px;
-        left: 2.5px;
-    }
-
-    .toggle-knob img {
-        width: 28px;
-        height: 28px;
-        margin: 6px;
-    }
-
-    .inactive-icon {
-        width: 28px;
-        height: 28px;
-        left: 2.5px;
-    }
-
-    .toggle-text {
-        font-size: 18px;
-    }
-}
-
 /* --- ERA CARDS UNDER TOGGLE --- */
 
 /* add padding-bottom to container eras */
@@ -1061,7 +1033,7 @@ nav.navbar {
 .toggle-frame {
     position: sticky;
     top: var(--nav-height);
-    z-index: 9999;
+    z-index: 9;
 
     display: flex;
     justify-content: center;

@@ -132,6 +132,12 @@ body {
     font-family: var(--default-font);
     font-size: 16px;
     color: var(--win-text);
+    
+}
+/* Fix: Make the active label bold */
+.active-text {
+    font-weight: bold !important;
+     /* Optional: adds a retro 3D depth to text */
 }
 
 /* Customizing the Pill to look like a Windows Well */
@@ -166,6 +172,7 @@ body {
     border-radius: 0;
     top: 50% !important;          /* Push top edge to vertical middle */
     transform: translateY(-50%); 
+     
 }
 /* --- 4. Chronology Container --- */
 .chronology-container {
