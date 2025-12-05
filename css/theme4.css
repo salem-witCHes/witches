@@ -20,7 +20,7 @@
     --default-font-color: var(--win-text);
     
     /* CORRECT Windows 95 Font */
-    --default-font: 'W95FA', 'MS Sans Serif', sans-serif;
+    --default-font: 'W95FA';
 }
 
 /* Apply global font & background to the whole body (All Pages) */
