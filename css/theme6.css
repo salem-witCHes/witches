@@ -509,6 +509,13 @@ footer a:hover {
   }
 }
 
+.introduction-title h2::after {
+  background: var(--erin-green);        /* change color decorative line after heading */
+}
+
+.documentation-title h2::after {
+  background: var(--erin-green);
+}
 
 
 /* -------------------------------
