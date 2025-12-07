@@ -261,6 +261,7 @@ body {
 .text {
     flex-grow: 1; /* Vital: Forces this box to fill ALL remaining space */
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
     padding: 0; /* Remove padding so blue header touches edges */
     
@@ -272,30 +273,22 @@ body {
 
 /* --- The Blue Header (Title) --- */
 .text-wrapper {
+    display: flex;
+    align-items: center; /* vertically center icon and text */
+    gap: 8px; /* space between icon and text */
     background-color: var(--win-blue);
     color: var(--win-white);
     font-family: var(--default-font);
     font-size: 16px;
-    line-height: 1.2;
-    padding: 8px; /* Internal padding for the title text */
-    
-    
-    /* This ensures the wrapper fills the height if text is short */
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
+    padding: 8px;
 }
-
 /* The Folder Icon */
 .text-wrapper::before {
     content: '';
-    display: inline-block;
-    width: 16px; 
+    width: 16px;
     height: 16px;
     background: url('../img/windows95-folder.svg') no-repeat center/contain;
-    margin-right: 8px;
-    margin-bottom: 4px;
-    vertical-align: middle;
+    display: block; /* inline-block is okay too */
 }
 
 /* --- The Grey Body (Date) --- */
@@ -306,12 +299,13 @@ body {
     background-color: var(--win-grey); 
     color: var(--win-text);
     
+    
     /* MAGIC TRICK: Negative margins pull the grey box 
        over the blue container's padding to touch the edges */
     margin-left: -8px; 
     margin-right: -8px;
     margin-bottom: -8px; /* Push to very bottom */
-    margin-top: 8px;     /* Push away from title */
+    margin-top: 16 px;     /* Push away from title */
     
     /* Add padding back to the text inside */
     padding: 8px 12px;
@@ -321,6 +315,14 @@ body {
     
     /* Ensure it fills vertical space */
     flex-grow: 1; 
+}
+.text i {
+    display: block;
+    font-style: normal;
+    background-color: var(--win-grey);
+    color: var(--win-text);
+    padding: 8px 12px;
+    margin-top: 12px; /* space from the blue header */
 }
 
 
