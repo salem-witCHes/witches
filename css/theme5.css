@@ -190,20 +190,99 @@ footer a:hover {
       4. Home 
 --------------------------- */
 
-/* Carousel */
+/* Carousel with taped edges */
+.carousel-frame-wrapper {
+    /* Add extra padding/margin to make space for the tape sticking out */
+    padding: 20px; 
+    /* The wrapper should be the context for the tape */
+    position: relative; 
+}
+
+/* Target the inner container where Bootstrap usually applies clipping */
+.carousel-inner {
+    /* The tape must be able to extend beyond the bounds of this container */
+    overflow: visible; 
+}
+
+.carousel-item {
+    /* Set positioning context for the tape (pseudo-elements) */
+    position: relative; 
+    background-color: transparent; 
+    padding: 30px; /* Space for the paper edge */
+    z-index: 50;
+}
+
+.carousel-item img {
+    /* Ensure the image fills the container */
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+    box-sizing: border-box;
+    transform: rotate(1deg); /* random rotation to break digital perfection */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tape Pseudo-Elements */
+
+/* Define the common properties of the tape */
+.carousel-item::before,
+.carousel-item::after {
+    content: "";
+    position: absolute;
+    width: 10vw;
+    height: 5vw;
+    /* width: 80px; /* Width of the tape strip */
+    /* height: 30px; /* Height/thickness of the tape strip */
+    background-color: rgba(220, 220, 190, 0.75); /* Translucent tan/masking tape color */
+    z-index: 99; /* Make sure the tape is on top of the image */
+    /* Add a subtle shadow to the tape to make it look raised */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    /* Use a simple border-radius to suggest slightly torn edges */
+    border-radius: 2px;
+}
+
+/* Tape on the Top-Left Corner */
+.carousel-item::before {
+    top: 10px; /* Pull it slightly over the top edge */
+    left: 10px;
+    /* Angle the tape slightly */
+    transform: rotate(-10deg); 
+}
+
+/* Tape on the Bottom-Right Corner */
+.carousel-item::after {
+    bottom: 10px; /* Pull it slightly over the bottom edge */
+    right: 10px;
+    /* Angle the tape slightly */
+    transform: rotate(-12deg); 
+}
+
+/* Fallback/Correction using Media Queries */
+/* It is wise to cap the tape size on massive screens so it doesn't get ridiculously large */
+@media (min-width: 1400px) {
+    .carousel-item::before,
+    .carousel-item::after {
+        width: 140px; /* Cap size at 140px */
+        height: 50px; /* Cap size at 50px */
+    }
+}
+
 .carousel-caption {
   background-color: var(--neon-pink);
   border-top: 1px solid var(--background-color);
   border-left: 1px solid var(--background-color);
-  rotate: -3deg;
+  rotate: -2deg;
 }
 
 .carousel-caption a {
   color: var(--background-color);
   text-decoration: none;
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(1.3rem, 3.2vw, 2.8rem);
   font-family: var(--font-default);
   font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
   transition: color 0.3s ease;
 }
@@ -273,6 +352,7 @@ footer a:hover {
 .link-documentation a {
   border: 2px solid var(--neon-pink);  /* outlined look */
   background-color: var(--neon-pink);
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.7);
   border-radius: 0%;
   color: var(--background-color);
   text-transform: uppercase;
@@ -283,5 +363,5 @@ footer a:hover {
 .link-documentation a:hover {
   background-color: transparent;
   color: var(--neon-pink);
-  transform: scale(1.05); 
+  transform: scale(1.10); 
 }
