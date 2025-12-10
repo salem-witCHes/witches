@@ -102,7 +102,7 @@ header::after {
 
 /* Layout options dropdown background */
 .navbar .layout-container .layout-options.active {
-    background: var(--Greyscale-900);
+    background: var(--vitali-tan);
 }
 /* Make sure each nav link is relative so pseudo-elements position correctly */
 .navbar-nav .nav-link {
