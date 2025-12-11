@@ -197,6 +197,9 @@ footer a:hover {
   color: var(--erin-green);
 }
 
+.footer-separator {
+  display: none;
+}
 
 
 /* Decorative lines under the navbar and before the footer */
@@ -587,10 +590,12 @@ footer a:hover {
 .toggle-text {
     font-size: 24px;
     font-family: var(--font-secondary);
+    color: var(--erin-green) !important;
     text-shadow: 0 0 8px var(--erin-green);
 }
 
 .toggle-pill {
+  background-color: transparent ;
   border: 1px solid var(--erin-green);
 }
 
