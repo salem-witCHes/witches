@@ -400,6 +400,7 @@ p {
 }
 
 
+
 @media (max-width: 768px) {
     .toggle-frame {
         max-width: none !important; 

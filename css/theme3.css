@@ -222,7 +222,6 @@ header .navbar .nav-item.dropdown .nav-link {
     background-color: var(--witchflame-red);
 }
 
-
 .navbar .layout-options {
     background-color: var(--background-color);
     border: 2px solid var(--cursed-walnut);
@@ -614,8 +613,6 @@ header .navbar {
     z-index: 0;
 }
 
-
-
 @media (max-width: 768px) {
 
     /* Covers top frame art */
@@ -651,9 +648,7 @@ header .navbar {
     .chronological-page header .navbar {
         width: 90%; /* Constrain the inner content */
         margin: 0 auto; /* Center the inner content */
-        height: auto; 
-        
-        /* Remove desktop border, looks cleaner */
+        height: auto;
         border: none;
     }
 
@@ -744,3 +739,42 @@ header .navbar {
 /* toggle height + background
 navbar hamburger menu on small screen */
 
+.map-container {
+    /* Overrides Bootstrap width restriction */
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.map-container svg {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    
+    /* Ensure the inner navbar container (the pill) is centered and constrained */
+    .map-page header .navbar {
+        width: 100%; /* Constrain the inner content */
+        margin: 0 auto; /* Center the inner content */
+        height: auto;
+        border: none;
+    }
+
+    .map-page header {
+        min-height: var(--scroll-start);
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-bottom: 2px solid var(--cursed-walnut);
+    }
+
+    .map-page header .nav-link {
+        padding: 5px 15px !important; 
+        font-size: 0.85rem; 
+    }
+
+    /* For the container that holds the links (the grey pill) */
+    .navbar-nav {
+      gap: 12px;
+    }
+}
