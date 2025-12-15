@@ -137,7 +137,7 @@ section p {
 /* Anchored to the center line, pushed Left */
 /* each tree is positioned relative to the center line and then pushed outwards using translateX(var(--shift) */
 .forest-left .tree {
-    right: 50%; 
+    right: 50%;
     margin-right: var(--center-gap-half); /* The safety gap */
     transform: translateX(var(--shift)); /* stores the specific lateral displacement value */
 }
@@ -156,9 +156,9 @@ section p {
 /* Anchored to the center line, pushed Right */
 .forest-right .tree {
     /* Anchor to the horizontal center */
-    left: 50%; 
+    left: 50%;
     /* Push it away from center to create the gap */
-    margin-left: var(--center-gap-half); 
+    margin-left: var(--center-gap-half);
     /* Move it further right based on specific tree shift */
     transform: translateX(var(--shift));
 }
@@ -169,7 +169,7 @@ section p {
 .forest-right .r2 { --shift: clamp(60px, 15vw, 160px); }
 .forest-right .r3 { --shift: clamp(90px, 22vw, 240px); }
 .forest-right .r4 { --shift: clamp(130px, 30vw, 320px); }
-.forest-right .r5 { --shift: clamp(170px, 38vw, 400px); } 
+.forest-right .r5 { --shift: clamp(170px, 38vw, 400px); }
 .forest-right .r6 { --shift: clamp(210px, 46vw, 480px); }
 
 /* Depth effect for back trees */
@@ -183,18 +183,18 @@ section p {
     top: 20%; /* Adjust this percentage to place her higher or lower */
     left: 50%;
     transform: translateX(-50%); /* Centers the image horizontally */
-    
+
     /* Set size (adjust as needed) */
-    width: clamp(80px, 8vw, 120px); 
+    width: clamp(80px, 8vw, 120px);
     height: auto;
-    
+
     z-index: 18; /* Higher than trees, lower than title (z-index 20) */
-    
+
     /* Animation transition */
     transition: transform 2.5s ease-in-out, opacity 1s ease-in-out;
 }
 
-/* title and button */ 
+/* title and button */
 .title-box {
     position: fixed;
     left: 50%;
@@ -203,10 +203,10 @@ section p {
     z-index: 15;
     text-align: center;
     white-space: nowrap;
-    
+
     /* Ensure title box width never exceeds the gap we created */
-    width: clamp(280px, 30vw, 400px); 
-    
+    width: clamp(280px, 30vw, 400px);
+
     opacity: 1;
     transition: opacity 1s ease-in-out;
 }
@@ -215,7 +215,7 @@ section p {
     margin: 0 0 0.4rem 0;
     text-transform: uppercase;
     /* Fixed size for the title */
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
@@ -284,7 +284,7 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
 */
 
 .forest.opening .witch-svg {
-    transform: translate(-50%, -100vh) scale(0.1); 
+    transform: translate(-50%, -100vh) scale(0.1);
     opacity: 0;
 }
 
@@ -300,8 +300,8 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
     visibility: visible;
 }
 
-/* --------------------------------------- 
-                   Navbar 
+/* ---------------------------------------
+                   Navbar
 ------------------------------------------ */
 .navbar {
     display: flex;
@@ -327,7 +327,7 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
 
 .navbar-nav .nav-link,
 .navbar-nav .nav-item-about {
-  padding: 10px 24px !important; 
+  padding: 10px 24px !important;
   justify-content: center;
   gap: 10px;
   border-radius: 80px;
@@ -394,7 +394,7 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
     padding: 16px;
     list-style: none;
     margin: 0;
-    /* background: white;     /* Uncomment this if you want visible background for the dropdown 
+    /* background: white;     /* Uncomment this if you want visible background for the dropdown
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15); */
     z-index: 9999;
@@ -412,9 +412,9 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
     justify-content: flex-end; /* Items are positioned at the end of the container */
     gap: 16px;
     padding: 6px 12px;
-    width: 45px; 
-    height: 45px; 
-    border-radius: 50%; 
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
     overflow: visible;
     position: relative;
     cursor: pointer;
@@ -453,13 +453,13 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
   stroke: white;
 }
 
-.trigger-style:hover .style-label { 
+.trigger-style:hover .style-label {
     padding: 5px 15px;
     align-self: center;
-    display: flex; 
+    display: flex;
     margin-left: 8px;
     white-space: nowrap;
-    color: white; 
+    color: white;
 }
 
 /* Dark overlay when dropdown is open */
@@ -637,7 +637,7 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
 
 .introduction,
 .link-documentation {
-  max-width: 90%;              
+  max-width: 90%;
   margin: 4rem auto;            /* centers the section horizontally */
   padding: 0 1rem;              /* small horizontal breathing space */
   text-align: center;           /* centers heading and button */
@@ -677,7 +677,7 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
       padding: 8px 24px;
       gap: 12px;
   }
-  
+
   .navbar-nav a {
       padding: 10px 16px;
   }
@@ -752,7 +752,7 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
 
 
 /* ------------------------------------
-                  FOOTER  
+                  FOOTER
 -------------------------------------- */
 .footer-separator {
     height: 2px;
@@ -789,7 +789,7 @@ footer a {
 
     /* 2. Rectangle Styling */
     width: 100%;
-    background-color: white;    
+    background-color: white;
     padding: 16px 0;
     margin: 0;
     box-sizing: border-box;
@@ -812,7 +812,7 @@ footer a {
 .toggle-pill {
     flex: 0 0 128px; /* Do not grow, Do not shrink, Stay 128px */
     height: 68px;
-    padding: 4px;            
+    padding: 4px;
     border-radius: 200px;
     border: 1px solid #1A1A1A;
     position: relative;
@@ -831,24 +831,24 @@ footer a {
 /* --- Internal Toggle Parts (Knob/Icons) --- */
 .toggle-knob {
     position: absolute;
-    width: 60px;               
+    width: 60px;
     height: 60px;
     border-radius: 50%;
     background: #191919;
-    top: 4px;                  
-    left: 4px;                 
+    top: 4px;
+    left: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;                
+    z-index: 2;
     transition: left 0.3s ease;
 }
 
 .toggle-knob img {
-    width: 40px;               
+    width: 40px;
     height: 40px;
     object-fit: contain;
-    margin: 10px;              
+    margin: 10px;
 }
 
 .inactive-icon {
@@ -858,8 +858,8 @@ footer a {
     top: 50%;
     transform: translateY(-50%);
     right: 4px; /* Default position for inactive icon */
-    z-index: 1;                 
-    transition: left 0.3s ease; 
+    z-index: 1;
+    transition: left 0.3s ease;
 }
 
 /* Text Styling */
@@ -1198,7 +1198,7 @@ nav.navbar {
         width: 85%; /* Use a large percentage of the screen width */
         min-width: 250px; /* Don't allow it to shrink below this size */
         /* Center the card if its width is less than 100% of its container */
-        margin: 0 auto; 
+        margin: 0 auto;
         /* On mobile, cards should stack their content (image/text) vertically */
         flex-direction: column;
         align-self: center;
@@ -1209,7 +1209,7 @@ nav.navbar {
     .line:nth-child(even) {
         justify-content: center; /* This overrides the flex-start/flex-end rules */
     }
-    
+
     /* 4. Fix image/text alignment within the card on mobile */
     .card .picture, .card .text {
         width: 100%;
@@ -1217,11 +1217,11 @@ nav.navbar {
     /* Fix image radius for stacked layout */
     .card .picture {
         /* Remove specific left-side rounding */
-        border-radius: 8px 8px 0 0; 
+        border-radius: 8px 8px 0 0;
     }
     .left-card .picture {
         /* Override specific left-side rounding for consistency */
-        border-radius: 8px 8px 0 0; 
+        border-radius: 8px 8px 0 0;
     }
 
     /* put all captions at the bottom of the images */
@@ -1231,12 +1231,13 @@ nav.navbar {
 }
 
 /* -------------------------
-            MAP 
+            MAP
 ---------------------------- */
 .map-container {
-  max-width: 750px;
-  margin: 0 auto 30px auto; /* center the container horizontally */
-  padding: 10px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  justify-content: center; /* center SVG horizontally */
+  align-items: center; /* center SVG vertically */
 }
 
 .map-container svg {
@@ -1245,69 +1246,46 @@ nav.navbar {
   display: block;
 }
 
-/* Media Query for Small Screens */
-@media (max-width: 767.98px) {
-    
-    /* Ensure the map container has enough vertical space */
-    .map-container {
-        /* On small screens, let it take up almost the full width of the column */
-        width: 90%; 
-        
-        /* Keep it centered */
-        margin: 0 auto 20px auto !important; 
-        
-        /* Prevent it from being too tiny by setting a minimum width */
-        min-width: 300px;
-    }
-    
-    /* Center the SVG within its container if it's smaller than the container */
-    .map-container svg {
-        /* Ensure the SVG itself doesn't exceed the container size */
-        max-height: 400px; 
-        /* The object-fit property is useful for images, but for inline SVG, 
-           we rely on viewBox and width:100% */
-    }
-}
 
 #first-room,
 #second-room,
-#third-room, 
+#third-room,
 #fourth-room {
   fill: var(--background-color) !important; /* Example default color */
   stroke: none;
-  opacity: 0.8; 
+  opacity: 0.8;
   transition: fill 0.3s, opacity 0.3s;
 }
 
 /* 2. Define the hover effect */
 #first-room:hover,
 #second-room:hover,
-#third-room:hover, 
+#third-room:hover,
 #fourth-room:hover {
   /* This rule will override the default rule above */
-  fill: var(--Greyscale-50) !important; 
+  fill: var(--Greyscale-50) !important;
   opacity: 1.0;
   cursor: pointer;
 }
 
-#text-first-room, 
-#text-second-room, 
-#text-third-room, 
+#text-first-room,
+#text-second-room,
+#text-third-room,
 #text-fourth-room {
   font-family: var(--default-font);
   font-weight: 600;
 }
 
-#door1, 
-#door2, 
-#door3, 
-#door4, 
-#door5, 
-#door6, 
-#door7, 
-#door8, 
-#door9, 
-#door10, 
+#door1,
+#door2,
+#door3,
+#door4,
+#door5,
+#door6,
+#door7,
+#door8,
+#door9,
+#door10,
 #door11 {
   fill: var(--background-color) !important;
 }
@@ -1316,6 +1294,12 @@ nav.navbar {
   border: 2px solid var(--Greyscale-900);
   border-radius: 8px;
   padding: 20px;
+}
+
+@media (max-width: 576px) {
+    .map-description {
+      margin: 20px;
+    }
 }
 
 .room-title {
@@ -1332,7 +1316,7 @@ nav.navbar {
 /* Ensures the top row containers have equal height on desktop/tablet */
 .item-table > .col-12 {
     /* Set a minimum height on the columns themselves, not the row */
-    min-height: 350px; 
+    min-height: 350px;
 }
 
 /* Base style for all content containers */
@@ -1364,14 +1348,14 @@ nav.navbar {
 .table {
     width: 100%;
     margin: 0;
-    background-color: transparent; 
+    background-color: transparent;
 }
 
 .table th,
 .table td {
     border: 1px solid var(--Greyscale-50);
     padding: 8px 10px;
-    vertical-align: top; 
+    vertical-align: top;
 }
 
 .table thead tr:first-child th {
@@ -1403,7 +1387,7 @@ nav.navbar {
   color: var(--default-font-color);
   text-decoration: none;           /* remove underline */
   font-weight: 600;
-  margin-top: 1.5rem;    
+  margin-top: 1.5rem;
 }
 
 
@@ -1419,8 +1403,8 @@ nav.navbar {
 /* 1. Target the Modal Body: Remove internal padding */
 #imageModal .modal-body {
     /* Remove default padding to push content to the edges */
-    padding: 0 !important; 
-    
+    padding: 0 !important;
+
     /* Ensure the background of the image area is dark (or whatever theme color you prefer) */
     background-color: transparent;
     /* The default modal background is often white. Setting this ensures a clean, dark viewing experience */
@@ -1430,10 +1414,10 @@ nav.navbar {
 #imageModal .modal-body img {
     /* Ensure the image scales up without being constrained by hidden spaces */
     width: auto !important;
-    
+
     /* Reiterate the max-height to ensure the image fits the viewport height */
-    max-height: 95vh !important; 
-    
+    max-height: 95vh !important;
+
     /* Optional: Add a smooth transition when the modal opens/closes */
     transition: all 0.3s ease-in-out;
 }
@@ -1442,10 +1426,10 @@ nav.navbar {
 #imageModal .modal-content {
     /* Remove default rounded corners if you want sharp edges on the image view */
     border-radius: 0;
-    
+
     /* Ensure no unwanted internal space */
     border: none;
-    
+
     /* Match the body background */
-    background-color: transparent; 
+    background-color: transparent;
 }
