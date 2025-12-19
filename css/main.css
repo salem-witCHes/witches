@@ -920,8 +920,22 @@ footer a {
     background: white;
     box-sizing: border-box;
     height: 100%;
+    
+}
+.bottom-left, .bottom-right {
+  display: none;
+}
+.era-card {
+  position: relative; /* Ensure the card is the coordinate reference */
 }
 
+.bottom-left, .bottom-right {
+  position: absolute;
+}
+
+.era-card {
+  gap: 0;
+}
 /* Ho aggiunto questo, controllare se va bene con tutto il resto */
 .era-card-content {
     display: flex;
@@ -1000,6 +1014,7 @@ footer a {
     -webkit-line-clamp: 3; /* maximum 3 lines */
     -webkit-box-orient: vertical;
 }
+
 
 /* Small screen adjustments */
 @media (max-width: 480px) {
