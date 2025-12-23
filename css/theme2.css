@@ -1,9 +1,7 @@
-/* Dark Romanticism */
-
-
+/* Romanticism aesthetic + XIX century book style */
 :root {
     --default-font: "IM Fell English", serif;
-    --text-font: "Cormorant Garamond", serif;
+    --text-font: "Libre Bodoni", serif;
 }
 
 /* Global Colors */
@@ -13,7 +11,6 @@
     --forest-green: #43462A;
     --pale-olive: #D2C486;
     --light: #EDE0C7;
-  
 }
 
 /* General styling */
@@ -33,29 +30,44 @@ body::before {
     z-index: -1;
 }
 
+.homepage-content,
+.page-content {
+  max-width: 1200px; /* Standard book width */
+  margin: 40px auto; /* Centered with space on sides */
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 2px solid var(--pale-olive); /* The edge of the page */
+  padding: 60px; /* Huge margins! Crucial for the book look */
+}
+
 /* headings (h1–h6) */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--default-font);
   color: var(--soft-ice);
+  /* Moonlight glow */
+  text-shadow: 0 0 10px rgba(212, 238, 249, 0.4), 
+               0 0 20px rgba(212, 238, 249, 0.2);
+  /* text-shadow: 2px 2px 0px #000000; */
+  text-transform: uppercase;
 }
 
-/* paragraphs */
 p {
   font-family: var(--text-font);
   color: var(--pale-olive);
+  font-weight: 400;
+  font-style: normal;
 }
 
-
-.navbar-nav, 
+/* .navbar-nav, 
 .card, 
 .introduction p, 
 .introduction-title {
-    /* Change 'solid' to 'double' and increase width to 4px or 6px */
     border: 6px double var(--pale-olive) !important; 
     
     /* Keep the sharp corners */
-    border-radius: 0px; 
-}
+    /* border-radius: 0px; 
+} */
 
 /* Navbar */
 /* ------------------------------------------ */
@@ -117,7 +129,6 @@ p {
     background-clip: padding-box; /* ensure border doesn’t get clipped */
 }
 
-
 .navbar .layout-container .layout-options {
     background-color: var(--forest-green);
     border: 2px solid var(--pale-olive);    /* frame color */
@@ -153,11 +164,28 @@ p {
 }
 
 /* Carousel */
-/* ---------------------------------------- */
+.carousel-item {
+    /* Use a 'double' border style. It looks much more like a
+       19th-century picture frame than a simple solid line. */
+    border: 8px double var(--antique-gold);
 
+    /* Optional: Add a very subtle drop shadow to give the frame depth */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
+    /* Ensures the image stays strictly inside the new frame */
+    overflow: hidden;
+}
+
+.carousel-item img {
+    filter: grayscale(100%) contrast(120%) brightness(100%) sepia(20%);
+    clip-path: ellipse(50% 40% at 50% 50%);
+}
 
 .carousel-caption a {
   color: var(--soft-ice);
+  /* Moonlight glow */
+  text-shadow: 0 0 10px rgba(212, 238, 249, 0.4), 
+               0 0 20px rgba(212, 238, 249, 0.2);
 }
 
 .carousel-caption a:hover {
@@ -197,9 +225,19 @@ p {
 
 /* replacing the black line */
 .introduction-title h2::after, .link-documentation h2::after {
-  content: none;
-  display: none;
+  content: "";
+  display: block;
+  width: 120px; 
+  height: 8px;  
+  background-color: var(--soft-ice);
+  margin: 1.5rem auto 2rem auto;
+  clip-path: polygon(0% 50%, 50% 0%, 100% 50%, 50% 100%);
 }
+
+/* .introduction-title,
+.link-documentation {
+  background-color: var(--background-color);
+} */
 
 .introduction-title {
   /* border: 2px solid var(--pale-olive); */
@@ -212,17 +250,17 @@ p {
   box-sizing: border-box;
 }
 
-.introduction-title::after, .documentation-title::after {
+/* .introduction-title::after, .documentation-title::after {
   content: "";
   display: block;
   width: 100px;                         
   height: 30px;
-  margin: 1em auto 1.5rem;                  /* spacing and centering */
+  margin: 1em auto 1.5rem;
   background-image: url('');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain; 
-}
+} */
 
 .introduction p,
 .link-documentation p,
@@ -262,6 +300,67 @@ p {
     height: 2px;
     background: var(--pale-olive);
 }
+
+
+
+/* MAP PAGE */
+.map-description {
+  background-color: var(--forest-green);
+  border: 2px solid var(--pale-olive);
+  border-radius: 0px;
+}
+
+/* #door1,
+#door2,
+#door3,
+#door4,
+#door5,
+#door6,
+#door7,
+#door8,
+#door9,
+#door10,
+#door11 {
+  fill: transparent !important;
+} */
+
+#museum-walls {
+  fill: var(--soft-ice);
+}
+
+#entrance-door {
+  stroke: var(--soft-ice);
+}
+
+#first-room,
+#second-room,
+#third-room,
+#fourth-room {
+  fill: transparent; /* Example default color */
+}
+
+#text-first-room, 
+#text-second-room, 
+#text-third-room, 
+#text-fourth-room {
+  font-family: var(--text-font) !important;
+  fill: var(--soft-ice) !important;
+}
+
+/* Define the hover effect */
+#first-room:hover,
+#second-room:hover,
+#third-room:hover, 
+#fourth-room:hover {
+  fill: var(--soft-ice) !important;
+}
+
+#first-room:hover + #text-first-room,
+#second-room:hover + #text-second-room,
+#third-room:hover + #text-third-room, 
+#fourth-room:hover + #text-fourth-room {
+  fill: var(--background-color) !important;
+} 
 
 
 /* ERAS PAGE */

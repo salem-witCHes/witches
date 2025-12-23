@@ -2,9 +2,9 @@
 
 function openCurtains() {
   const forest = document.getElementById('forestContainer');
-  const homepage = document.getElementById('homepage-content');
   const gradient = forest.querySelector('.forest-gradient');
   const titleBox = document.getElementById('titleBox');
+  const elementsToReveal = document.querySelectorAll('.content-to-reveal');
 
   // show gradient
   gradient.style.opacity = '1';
@@ -21,10 +21,14 @@ function openCurtains() {
 
     // wait for opacity transition to finish
     forest.addEventListener('transitionend', () => {
-      forest.classList.add('hidden');   // actually hide it
-      homepage.classList.add('visible'); // show homepage content
+      forest.classList.add('hidden');
+      elementsToReveal.forEach(element => {
+                element.classList.add('visible');
+            });
     }, { once: true });
-  }, 800); // match tree slide duration (ms)
+  }, 800);
+
+  localStorage.setItem('hasVisited', 'true');
 }
 
 
@@ -32,16 +36,21 @@ function openCurtains() {
 document.addEventListener('DOMContentLoaded', () => {
   const hasVisited = localStorage.getItem('hasVisited');
   const forest = document.getElementById('forestContainer');
-  const homepage = document.getElementById('homepage-content');
+  const elementsToReveal = document.querySelectorAll('.content-to-reveal');
 
   if (hasVisited) {
-    // Skip animation — hide forest, show homepage
     forest.style.display = 'none';
-    homepage.classList.add('visible');
-  } else {
-    // First visit — show animation
-    localStorage.setItem('hasVisited', 'true');
-  }
+    elementsToReveal.forEach(element => {
+        // temporarily disable the transition so it appears instantly
+        element.style.transition = 'none'; 
+        element.classList.add('visible');
+        
+        // We force a "reflow" so the browser accepts the change, then restore transition
+        // (This is a niche CSS trick, but useful if you want hover effects to work later)
+        void element.offsetWidth; 
+        element.style.transition = ''; 
+    });
+  } 
 });
 
 

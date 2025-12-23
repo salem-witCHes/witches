@@ -2,7 +2,6 @@
 /* Fonts */
 :root {
     --default-font: "Federo", sans-serif;
-    --text-font: "Josefin Sans", sans-serif;
 }
 
 /* Global Colors */
@@ -80,7 +79,7 @@ header {
 
 .navbar-nav .nav-link {
   color: var(--darker-brown);
-  border: 2px solid var(--green-amber);
+  border: 2px dotted var(--green-amber);
   border-radius: 2px;
 }
 
@@ -88,16 +87,14 @@ header {
   text-decoration: none;
   background-color: var(--green-amber);
   color: var(--warm-canvas);
-  border: 2px solid var(--darker-brown);
+  border: 2px dotted var(--darker-brown);
 }
 
 .navbar .nav-link.active {
   color: var(--warm-canvas) !important;    /* important! to override the variable --bs-navbar-active-color */
   background-color: var(--green-amber);
-  border: 2px solid var(--darker-brown);
+  border: 2px dotted var(--darker-brown);
 }
-
-
 
 .navbar .layout-container .layout-options {
     background-color: var(--warm-canvas);
@@ -115,7 +112,6 @@ header {
   border: 2px solid var(--darker-brown);
   border-radius: 2px;
 }
-
 
 .trigger-style:hover {
     border-color: var(--green-amber);
@@ -277,6 +273,32 @@ header {
   color: var(--warm-canvas);
 }
 
+
+footer {
+  background-color: var(--green-amber);
+  border-top: 4px solid var(--darker-brown);
+}
+
+.footer-separator {
+    background-color: transparent;
+}
+
+footer h5 {
+  color: black;
+}
+
+footer p,
+footer a {
+  color: var(--warm-canvas);
+}
+
+.bi-github {
+  color: var(--darker-brown);
+}
+
+.bi-envelope {
+  color: var(--darker-brown);
+}
 
 
 /* MAP PAGE */
@@ -455,7 +477,6 @@ header {
 .ellipse,
 .ellipse-2 {
     background: var(--darker-brown);
-    border: 2px solid var(--warm-canvas);
     border-radius: 2px;
 }
 
@@ -496,4 +517,56 @@ header {
     color: var(--darker-brown);
     font-family: var(--default-font);
     text-shadow: none;
+}
+
+/* ITEM PAGE */
+/* Base style for all content containers */
+.item-box, .table-box, .text-box {
+  background-color: var(--warm-canvas);
+  border: 2px solid var(--hexed-walnut);
+  border-radius: 2px;
+  color: var(--darker-brown);
+}
+
+.item-box {
+    padding: 0;
+    aspect-ratio: 16/9;
+}
+
+.table th,
+.table td {
+    border: none;
+    border-bottom: 4px dotted var(--green-amber);
+    background-color: transparent;
+    color: var(--darker-brown);
+}
+
+.table thead tr:first-child th {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.text-box button {
+  border: 2px solid var(--hexed-walnut);  /* outlined look */
+  color: var(--hexed-walnut);
+}
+
+.text-box button:hover {
+  background-color: var(--green-amber);
+  color: var(--warm-canvas);
+  border: 2px solid var(--hexed-walnut);
+}
+
+.card-footer button {
+  border: 2px solid var(--green-amber);  /* outlined look */
+  border-radius: 2px;             /* rounded edges */
+  color: var(--darker-brown);
+  background-color: var(--warm-canvas);
+}
+
+.card-footer button:hover {
+  background-color: var(--green-amber);
+  color: var(--warm-canvas);
+  border: 2px solid var(--hexed-walnut);
+  border-radius: 2px;
 }
