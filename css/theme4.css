@@ -516,7 +516,7 @@ footer {
 .introduction,
 .link-documentation {
     /* Reset margins/padding from main.css to control spacing better */
-    margin: 4rem  !important; /* Center content vertically, remove side margins */
+    margin: 10rem  !important; /* Center content vertically, remove side margins */
     padding: 0 4px 4px 4px !important; /* Padding for the 3D bevel effect */
     
     background-color: var(--win-grey);
