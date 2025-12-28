@@ -180,16 +180,12 @@ section p {
 /* witch */
 .witch-svg {
     position: absolute;
-    top: 20%; /* Adjust this percentage to place her higher or lower */
+    top: 20%;
     left: 50%;
-    transform: translateX(-50%); /* Centers the image horizontally */
-
-    /* Set size (adjust as needed) */
+    transform: translateX(-50%); /* centers the image horizontally */
     width: clamp(80px, 8vw, 120px);
     height: auto;
-
     z-index: 18; /* Higher than trees, lower than title (z-index 20) */
-
     /* Animation transition */
     transition: transform 2.5s ease-in-out, opacity 1s ease-in-out;
 }
@@ -247,7 +243,6 @@ section p {
 }
 
 /* animation opening */
-
 /* move the trees on the left side of the screen completely out of the viewport when the .opening class is applied.
 tree current size - 100% of the viewport width */
 .forest.opening .forest-left .tree {
@@ -277,25 +272,19 @@ scaleX(-1) re-introduces the horizontal flip */
     display: none;
 }
 
-/* witch animation
--50% maintains the horizontal centering during the animation, preventing her from shifting sideways as she moves
-- 100vh moves the witch upwards by 100% of the viewport height
-scale(0.1) = while moving, the element is dramatically shrunk to 10% of its original size.
-*/
-
 .forest.opening .witch-svg {
     transform: translate(-50%, -100vh) scale(0.1);
     opacity: 0;
 }
 
-/* CONTENT (Post-Animation) */
-#homepage-content {
+/* content to reveal (Post-Animation) */
+.content-to-reveal {
     opacity: 0;
     visibility: hidden;
     transition: opacity 1s ease-in-out;
 }
 
-#homepage-content.visible {
+.content-to-reveal.visible {
     opacity: 1;
     visibility: visible;
 }
@@ -325,8 +314,7 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
     flex-shrink: 0;
 }
 
-.navbar-nav .nav-link,
-.navbar-nav .nav-item-about {
+.navbar-nav .nav-link {
   padding: 10px 24px !important;
   justify-content: center;
   gap: 10px;
@@ -481,14 +469,6 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
   visibility: visible;
 }
 
-/* --- DEFAULT STATE (Wide Navigation) --- */
-
-/* By default, HIDE the dropdown (compact) menu */
-#nav-group-more-compact {
-    display: none !important;
-}
-
-
 /* --- RESPONSIVE NAVBAR --- */
 @media (max-width: 991px) {
   #menuItems {
@@ -626,7 +606,8 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
   opacity: 1;
 }
 
-.introduction-title h2::after {
+.introduction-title h2::after,
+.documentation-title h2::after {
   content: "";
   display: block;
   width: 60px;             /* line length */
@@ -651,28 +632,13 @@ scale(0.1) = while moving, the element is dramatically shrunk to 10% of its orig
   color: var(--default-font-color);
   text-decoration: none;           /* remove underline */
   font-weight: 600;
-  margin-top: 1.5rem;              /* spacing above the button */
+  margin: 1.5rem;              /* spacing above the button */
 }
 
 .link-documentation a:hover {
   background-color: var(--default-font-color);
   color: var(--background-color);
   /* transform: scale(1.05); */         /* subtle zoom */
-}
-
-/* cover the title-page on default */
-.title-page {
-  display: none;
-}
-
-/* Decorative line after heading */
-.documentation-title h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 2px;
-  background: var(--default-font-color);
-  margin: 1em auto 1.2em;
 }
 
 
@@ -784,7 +750,6 @@ footer a {
 }
 
 /* ----------------- Toggle Section ----------------- */
-
 /* The Rectangle Container */
 .toggle-frame {
     /* 1. Stickiness */
@@ -1337,6 +1302,11 @@ nav.navbar {
     min-height: 350px;
 }
 
+#item-container {
+    padding-top: 5px !important;
+    margin-top: 0px;
+}
+
 /* Base style for all content containers */
 .item-box, .table-box, .text-box {
     height: 100%;
@@ -1346,8 +1316,7 @@ nav.navbar {
 }
 
 .item-box {
-    padding: 0;
-    aspect-ratio: 16/9;
+    padding: 0;   
 }
 
 .item-box img {
@@ -1398,7 +1367,7 @@ nav.navbar {
   /* transform: scale(1.05); */         /* subtle zoom */
 }
 
-.card-footer a {
+.card-footer button {
   border: 2px solid var(--default-font-color);  /* outlined look */
   padding: 0.75rem 1.5rem;
   border-radius: 2rem;             /* rounded edges */
@@ -1409,7 +1378,7 @@ nav.navbar {
 }
 
 
-.card-footer a:hover {
+.card-footer button:hover {
   background-color: var(--default-font-color);
   color: var(--background-color);
   /* transform: scale(1.05); */         /* subtle zoom */
@@ -1417,37 +1386,21 @@ nav.navbar {
 
 
 /* Styling for the enlarged image in the modal */
-
-/* 1. Target the Modal Body: Remove internal padding */
 #imageModal .modal-body {
-    /* Remove default padding to push content to the edges */
     padding: 0 !important;
-
-    /* Ensure the background of the image area is dark (or whatever theme color you prefer) */
     background-color: transparent;
-    /* The default modal background is often white. Setting this ensures a clean, dark viewing experience */
 }
 
-/* 2. Target the Image Itself */
+
 #imageModal .modal-body img {
-    /* Ensure the image scales up without being constrained by hidden spaces */
     width: auto !important;
-
-    /* Reiterate the max-height to ensure the image fits the viewport height */
     max-height: 95vh !important;
-
     /* Optional: Add a smooth transition when the modal opens/closes */
     transition: all 0.3s ease-in-out;
 }
 
-/* 3. Optional: Style the Modal Content container */
 #imageModal .modal-content {
-    /* Remove default rounded corners if you want sharp edges on the image view */
     border-radius: 0;
-
-    /* Ensure no unwanted internal space */
     border: none;
-
-    /* Match the body background */
     background-color: transparent;
 }
