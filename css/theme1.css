@@ -304,3 +304,60 @@ footer a {
   border-radius: 0px;             /* rounded edges */
 
 }
+#first-room:hover,
+#second-room:hover,
+#third-room:hover,
+#fourth-room:hover {
+  /* This rule will override the default rule above */
+  fill: var(--noise-color) !important;
+  opacity: 1.0;
+  cursor: pointer;
+}
+.map-description {
+  border-radius: 0px;
+  padding: 0 8px 8px 8px !important;
+  margin-top: 100px;
+  position: relative; 
+
+}
+.map-description::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px; /* adjust size */
+    height: 30px; /* adjust size */
+    background: url("../img/operello-left.svg") no-repeat center center;
+    background-size: contain;
+}
+
+/* Top-right corner */
+.map-description::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px; /* adjust size */
+    height: 30px; /* adjust size */
+    background: url("../img/operello-right.svg") no-repeat center center;
+    background-size: contain;
+}
+.map-description .map-bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: url("../img/operello-left-down.svg") no-repeat center;
+    background-size: contain;
+}
+
+.map-description .map-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: url("../img/operello-right-down.svg") no-repeat center;
+    background-size: contain;
+}
