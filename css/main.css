@@ -865,6 +865,10 @@ footer a {
     font-weight: 700;
 }
 
+#toggleIcon path {
+  fill: var(--Greyscale-50);
+}
+
 /* Mobile Adjustment: Make text smaller so it doesn't break */
 @media (max-width: 480px) {
     .toggle-frame {
