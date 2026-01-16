@@ -233,7 +233,15 @@ document.addEventListener("DOMContentLoaded", () => {
 const roomData = {
     'first-room': {
         title: "Mythic roots",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        description: `
+        <p>Before the witch was feared, she was <strong>revered</strong>.</p> 
+        
+        <p>This room explores the earliest representation of witch-like figures, rooted in <strong>myth, legend and pagan rituals</strong>. 
+        Here, the witch appears as a healer, a priestess, a goddess or a mediator between the human and natural worlds. These figures were often associated with 
+        fertility, cycles of life and death, herbal medicine and spiritual wisdom. In ancient societies, magic was not something to be feared. It was considered 
+        <strong>complementary to faith and daily life</strong>, with practitioners enjoying respect for their wisdom and power. Mythic roots invites visitors to encounter the witch 
+        not as a transgressor, but as a foundational cultural figure.</p>
+        `,
     },
     'second-room': {
         title: "Fires of fear",
