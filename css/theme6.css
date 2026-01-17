@@ -238,38 +238,83 @@ footer a:hover {
 --------------------------- */
 
 /* ----- Carousel ----- */
+/* 1. Main Carousel Frame */
+
+/* High tech viewport effect */
 .carousel-frame-wrapper {
   padding: 20px 80px;
 }
 
 .carousel {
-  border: 5px solid var(--electric-cyan);
-  box-shadow:
-    0 0 8px var(--electric-cyan),
-    0 0 15px var(--magenta-glitch);
-  background-color: var(--background-color);
-}
-
-.carousel-item {
     position: relative;
-    overflow: hidden;
+    border: 5px solid var(--electric-cyan);
+    box-shadow:
+      0 0 8px var(--electric-cyan),
+      0 0 15px var(--magenta-glitch);
+    background-color: var(--background-color);
+    overflow: visible !important; /* Allow brackets to sit on the edge */
 }
 
-/* Erin green grainy overlay on carousel */
-.carousel-item img {
-    filter: brightness(1.1) contrast(1.15) saturate(1.05);
-    display: block;
-    width: 100%;
-    position: relative;
-    z-index: 1;
+/* 2. Corner Brackets (Target Reticles) */
+.carousel::before,
+.carousel::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--magenta-glitch);
+    z-index: 3000; /* Higher than controls and images */
+    pointer-events: none;
+    filter: drop-shadow(0 0 5px var(--magenta-glitch));
 }
 
-/* Ensure buttons are visible and above everything */
-.carousel-control-prev,
-.carousel-control-next {
-    width: 10%;
-    opacity: 1 !important;
-    z-index: 2000 !important;
+/* Top-Left Bracket */
+.carousel::before {
+    top: -10px;
+    left: -10px;
+    border-right: none;
+    border-bottom: none;
+}
+
+/* Bottom-Right Bracket */
+.carousel::after {
+    bottom: -10px;
+    right: -10px;
+    border-left: none;
+    border-top: none;
+}
+
+/* 3. The "Scanning" Data HUD */
+.carousel-inner::before {
+    content: "REC ● LINK_ESTABLISHED // STREAMING_LIVE";
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-family: var(--font-secondary);
+    font-size: 12px;
+    color: var(--erin-green);
+    z-index: 3000;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px var(--erin-green);
+    animation: text-flicker 4s infinite;
+}
+
+/* 4. Digital Scanline Overlay */
+.carousel-inner::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0px,
+        rgba(0, 0, 0, 0) 2px,
+        rgba(26, 254, 73, 0.03) 3px,
+        rgba(0, 0, 0, 0) 4px
+    );
+    background-size: 100% 4px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 /* Remove bootstrap default icons */
@@ -375,7 +420,8 @@ footer a:hover {
   padding: 10px 50px;
   font-size: 20px;
   border: 1px solid var(--electric-cyan);
-  border-radius: 5px;
+  border-radius: 2px;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 90% 100%, 0 100%);
   color: var(--electric-cyan);
   text-shadow: 0 0 6px var(--electric-cyan);
   background-color: transparent;
@@ -509,6 +555,7 @@ footer a:hover {
   stroke: var(--erin-green);
 }
 
+#text-entrance-room,
 #text-first-room, 
 #text-second-room, 
 #text-third-room, 
@@ -519,6 +566,7 @@ footer a:hover {
 }
 
 /* Define the hover effect */
+#entrance-room:hover,
 #first-room:hover,
 #second-room:hover,
 #third-room:hover, 
@@ -528,6 +576,7 @@ footer a:hover {
   filter: drop-shadow(0 0 10px var(--erin-green));
 }
 
+#entrance-room:hover + #text-entrance-room,
 #first-room:hover + #text-first-room,
 #second-room:hover + #text-second-room,
 #third-room:hover + #text-third-room, 
@@ -715,6 +764,340 @@ footer a:hover {
   font-family: var(--font-secondary);
   text-shadow: 2px 2px 4px rgba(0,0,0,1);
 }
+
+
+/* --------------------------------
+    ITEM PAGE 
+--------------------------------- */
+
+/* .item-box {
+    padding: 15px;
+}
+
+.item-box img {
+  border: 5px solid var(--electric-cyan);
+  box-shadow:
+    0 0 8px var(--electric-cyan),
+    0 0 15px var(--magenta-glitch);
+} */
+
+/* 1. The Main Container */
+.item-box {
+    position: relative;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid color-mix(in srgb, var(--electric-cyan), transparent 80%);
+    overflow: visible; /* Required to let the glow bleed out */
+}
+
+/* 2. Target Reticle (Corner Brackets) */
+.item-box::before,
+.item-box::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--electric-cyan);
+    z-index: 2;
+    pointer-events: none; /* Let clicks pass through to the <a> tag */
+}
+
+/* Top-Left Corner */
+.item-box::before {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+}
+
+/* Bottom-Right Corner */
+.item-box::after {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+}
+
+/* 3. The Image Style */
+.item-box img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    display: block;
+    object-fit: cover;
+    filter: sepia(20%) hue-rotate(160deg) brightness(1.1); /* Subtle digital tint */
+    border: 1px solid var(--electric-cyan);
+    transition: all 0.3s ease;
+}
+
+/* 4. Hover State: Glitch & Glow */
+.item-box a:hover img {
+    filter: sepia(0%) hue-rotate(0deg) brightness(1.2);
+    box-shadow: 
+        0 0 15px var(--electric-cyan),
+        -5px 0 10px var(--magenta-glitch),
+        5px 0 10px var(--electric-cyan);
+    transform: scale(1.02);
+}
+
+/* 5. "Source Information" Tag */
+.item-box a::before {
+    content: "SCANNING_STREAMS...";
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--electric-cyan);
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px var(--electric-cyan);
+}
+
+
+/* 1. The Container */
+.table-box {
+    /* border: 1px solid var(--erin-green); */
+    padding: 10px;
+}
+
+/* 2. The Header (Title) */
+#item-title {
+    color: var(--magenta-glitch) !important;
+    text-shadow: 0 0 10px var(--magenta-glitch);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    border: 3px double var(--magenta-glitch) !important;
+    text-align: center;
+}
+
+/* 3. Table Cells */
+.table th,
+.table td {
+    border: 1px solid color-mix(in srgb, var(--erin-green), transparent 70%);    
+    background-color: transparent !important;
+    color: var(--electric-cyan);
+    padding: 12px !important;
+    box-shadow: none; /* Removing the heavy shadow for a cleaner tech look */
+}
+
+/* 4. Labels (Left Column) */
+#metadata-tbody th {
+    color: var(--erin-green);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    width: 30%; /* Fixed width for alignment */
+    border-left: 2px solid var(--erin-green) !important; /* Industrial accent */
+}
+
+/* 5. Values (Right Column) */
+#metadata-tbody td {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+/* 6. Row Hover Effect (The "Scanning" highlight) */
+#metadata-tbody tr:hover {
+    background-color: rgba(0, 255, 255, 0.1) !important;
+    cursor: crosshair;
+}
+
+#metadata-tbody tr:hover td {
+    color: #fff;
+    text-shadow: 0 0 10px var(--electric-cyan);
+}
+
+
+/* 1. Target all buttons within your specific groups */
+#length-buttons .btn, 
+#tone-buttons .btn {
+  padding: 10px 25px;
+  font-size: 16px;
+  border: 1px solid var(--electric-cyan) !important;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* Cyberpunk Corner Cut */
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 85% 100%, 0 100%);
+  color: var(--electric-cyan) !important;
+  text-shadow: 0 0 6px var(--electric-cyan);
+  background-color: transparent !important;
+  position: relative;
+  transition: all 0.1s;
+  overflow: visible; /* Ensure glitch doesn't cut off */
+}
+
+/* 2. Setup the Pseudo-element for the glitch overlay */
+#length-buttons .btn::after,
+#tone-buttons .btn::after {
+  --move1: inset(50% 50% 50% 50%);
+  --move2: inset(31% 0 40% 0);
+  --move3: inset(39% 0 15% 0);
+  --move4: inset(45% 0 40% 0);
+  --move5: inset(45% 0 6% 0);
+  --move6: inset(14% 0 61% 0);
+  clip-path: var(--move1);
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3. HARDCODE TEXT (Since we can't use data-text) */
+/* Length Buttons */
+#length-buttons .btn:nth-child(1)::after { content: 'Short'; }
+#length-buttons .btn:nth-child(2)::after { content: 'Medium'; }
+#length-buttons .btn:nth-child(3)::after { content: 'Long'; }
+
+/* Tone Buttons */
+#tone-buttons .btn:nth-child(1)::after { content: 'Kid'; }
+#tone-buttons .btn:nth-child(2)::after { content: 'Educational'; }
+#tone-buttons .btn:nth-child(3)::after { content: 'Scholar'; }
+
+/* 4. Hover State Effects */
+#length-buttons .btn:hover,
+#tone-buttons .btn:hover {
+  background-color: transparent !important;
+  text-shadow: -1px -1px 0px var(--electric-cyan), 1px 1px 0px var(--magenta-glitch);
+  border: 1px solid var(--erin-green) !important;
+  box-shadow: 0 0 10px var(--erin-green);
+}
+
+#length-buttons .btn:hover::after,
+#tone-buttons .btn:hover::after {
+  animation: glitch_4011 1s steps(2, end);
+  text-shadow: -3px -3px 0px var(--electric-cyan), 3px 3px 0px var(--magenta-glitch);
+  border: 3px solid var(--violet-blue);
+}
+
+/* Add a constant "unstable" flicker to the border */
+@keyframes border-flicker {
+  0%, 100% { opacity: 1; }
+  41% { opacity: 1; }
+  42% { opacity: 0.6; }
+  43% { opacity: 1; }
+  45% { opacity: 0.3; }
+  46% { opacity: 1; }
+}
+
+#length-buttons .btn.active,
+#tone-buttons .btn.active {
+  animation: border-flicker 2s infinite;
+  background-color: rgba(0, 255, 255, 0.2) !important;
+  box-shadow: inset 0 0 15px color-mix(in srgb, var(--electric-cyan), transparent 70%);  /* box-shadow: inset 0 0 15px var(--electric-cyan); */
+}
+
+
+/* Card footer buttons */
+/* 1. Base Styles for Footer Buttons */
+#btn-prev, 
+#btn-next,
+#room-nav-controls .btn {
+  padding: 10px 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: 1px solid var(--electric-cyan) !important;
+  border-radius: 2px;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 85% 100%, 0 100%);
+  color: var(--electric-cyan) !important;
+  background-color: transparent !important;
+  position: relative;
+  overflow: visible;
+  transition: all 0.2s;
+}
+
+/* 2. Setup Glitch Overlay */
+#btn-prev::after, 
+#btn-next::after,
+#room-nav-controls .btn::after {
+  --move1: inset(50% 50% 50% 50%);
+  --move2: inset(31% 0 40% 0);
+  --move3: inset(39% 0 15% 0);
+  --move4: inset(45% 0 40% 0);
+  --move5: inset(45% 0 6% 0);
+  --move6: inset(14% 0 61% 0);
+  clip-path: var(--move1);
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3. Hardcoded Text Labels */
+#btn-prev::after { content: 'Previous'; }
+#btn-next::after { content: 'Next'; }
+#room-nav-controls .btn:nth-of-type(1)::after { content: 'Prev Room'; }
+#room-nav-controls .btn:nth-of-type(2)::after { content: 'Next Room'; }
+
+/* 4. Hover State and Animation */
+#btn-prev:hover, 
+#btn-next:hover,
+#room-nav-controls .btn:hover {
+  border-color: var(--erin-green) !important;
+  box-shadow: 0 0 10px var(--erin-green);
+  text-shadow: -1px -1px 0px var(--electric-cyan), 1px 1px 0px var(--magenta-glitch);
+}
+
+#btn-prev:hover::after, 
+#btn-next:hover::after,
+#room-nav-controls .btn:hover::after {
+  animation: glitch_4011 1s steps(2, end);
+  text-shadow: -3px -3px 0px var(--electric-cyan), 3px 3px 0px var(--magenta-glitch);
+  border: 2px solid var(--violet-blue);
+}
+
+
+/* Container for the navigation text */
+#room-nav-controls {
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace; /* Monospaced for terminal feel */
+}
+
+/* The "Current Room:" label */
+#room-nav-controls .text-muted {
+    color: var(--electric-cyan) !important;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+}
+
+/* The actual Room Name (Dynamic Text) */
+#current-room-name {
+    color: var(--magenta-glitch);
+    text-shadow: 0 0 8px var(--magenta-glitch);
+    font-weight: bold;
+    position: relative;
+    animation: text-flicker 3s infinite;
+}
+
+/* Add a "Terminal Cursor" effect after the room name */
+#current-room-name::after {
+    content: '_';
+    animation: blink 1s infinite;
+}
+
+/* Cyberpunk Animations */
+@keyframes text-flicker {
+    0%, 100% { opacity: 1; }
+    92% { opacity: 1; }
+    93% { opacity: 0.5; }
+    94% { opacity: 0.8; }
+    95% { opacity: 0.2; }
+    96% { opacity: 1; }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+
+
+
+
+
 
 
 
