@@ -647,8 +647,8 @@ scaleX(-1) re-introduces the horizontal flip */
   text-align: center;           /* centers heading and button */
 }
 
-.introduction-text,
-.documentation-text {
+.introduction-text p,
+.documentation-text p {
   /* Scales from 16px on mobile to 80px on large screens */
   padding-inline: clamp(1rem, 3vw, 2rem); 
   
@@ -1300,6 +1300,17 @@ nav.navbar {
 #second-room:hover,
 #third-room:hover,
 #fourth-room:hover {
+  /* This rule will override the default rule above */
+  fill: var(--Greyscale-50) !important;
+  opacity: 1.0;
+  cursor: pointer;
+}
+
+#entrance-room.active,
+#first-room.active,
+#second-room.active,
+#third-room.active,
+#fourth-room.active {
   /* This rule will override the default rule above */
   fill: var(--Greyscale-50) !important;
   opacity: 1.0;
