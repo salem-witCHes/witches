@@ -894,7 +894,8 @@ footer a:hover {
 }
 
 
-/* Target all buttons: length, tone, previous/next */
+/* Target all buttons: length, tone, previous/next + "explore room items" button in map page*/
+.custom-room-btn,
 #length-buttons .btn, 
 #tone-buttons .btn, 
 #btn-prev, #btn-next,
@@ -917,6 +918,7 @@ footer a:hover {
 }
 
 /* Setup the Pseudo-element for the glitch overlay */
+.custom-room-btn::after,
 #length-buttons .btn::after,
 #tone-buttons .btn::after, 
 #btn-prev::after, 
@@ -952,7 +954,10 @@ footer a:hover {
 #room-nav-controls .btn:nth-of-type(1)::after { content: 'Prev Room'; }
 #room-nav-controls .btn:nth-of-type(2)::after { content: 'Next Room'; }
 
+.custom-room-btn::after { content: 'Explore Room Items'; }
+
 /* Hover State Effects */
+.custom-room-btn:hover,
 #length-buttons .btn:hover,
 #tone-buttons .btn:hover, 
 #btn-prev:hover, 
@@ -964,6 +969,7 @@ footer a:hover {
   box-shadow: var(--glow-green);
 }
 
+.custom-room-btn:hover::after,
 #length-buttons .btn:hover::after,
 #tone-buttons .btn:hover::after, 
 #btn-prev:hover::after, 
@@ -1001,15 +1007,15 @@ footer a:hover {
 /* The "Current Room:" label */
 #room-nav-controls .text-muted {
     color: var(--electric-cyan) !important;
-    opacity: 0.6;
+    opacity: 1;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.75rem;
 }
 
 /* The actual Room Name (Dynamic Text) */
-#current-room-name {
-    color: var(--magenta-glitch);
+#room-nav-controls #current-room-name {
+    color: var(--magenta-glitch) !important;
     text-shadow: 0 0 8px var(--magenta-glitch);
     font-weight: bold;
     position: relative;
@@ -1017,7 +1023,7 @@ footer a:hover {
 }
 
 /* Add a "Terminal Cursor" effect after the room name */
-#current-room-name::after {
+#room-nav-controls #current-room-name::after {
     content: '_';
     animation: blink 1s infinite;
 }

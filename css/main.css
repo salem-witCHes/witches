@@ -1304,6 +1304,7 @@ nav.navbar {
 #text-third-room,
 #text-fourth-room {
   font-family: var(--default-font);
+  font-size: 25px;
   font-weight: 600;
 }
 
