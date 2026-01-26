@@ -162,10 +162,16 @@ body {
     
     
     border-radius: 0;
+<<<<<<< Updated upstream
+  
+     
+=======
     top: 50% !important;          
     transform: translateY(-50%); 
-     
+>>>>>>> Stashed changes
 }
+
+
 /* ---  Chronology Container --- */
 .chronology-container {
     background-color: var(--win-teal);
@@ -754,12 +760,10 @@ footer {
     padding: 10px 20px !important;
     min-width: 100px; /* Optional: ensures they are the same width */
     
-    /* Windows 95 "UP" Look */
     background-color: var(--win-grey) !important;
     border: none !important;
     border-radius: 0 !important;
     
-    /* Classic 3D Outset Shadow */
     box-shadow: inset 2px 2px 0px var(--win-white),
                 inset -2px -2px 0px var(--win-dark-grey),
                 1px 1px 0px 0px #000 !important; 
@@ -767,7 +771,6 @@ footer {
     transition: none !important; 
 }
 
-/* Ensure Hover doesn't change the 3D effect (Stays UP) */
 #btn-prev:hover,
 #btn-next:hover {
     background-color: var(--win-grey) !important;
@@ -779,7 +782,7 @@ footer {
                 1px 1px 0px 0px #000 !important; 
 }
 
-/* 2. Active / Click State (The "DOWN" Look) */
+/* 2. Active / Click State */
 #btn-prev:active,
 #btn-next:active {
     background-color: #E6E6E6 !important;
@@ -794,7 +797,6 @@ footer {
     transform: translate(1px, 1px) !important;
 }
 
-/* 3. The Dashed Focus Line (Only when clicking) */
 #btn-prev:active::after,
 #btn-next:active::after {
     content: "";
@@ -804,7 +806,6 @@ footer {
     pointer-events: none; 
 }
 
-/* 4. Cleanup Theme 1 Leftovers */
 #btn-prev::before,
 #btn-next::before {
     display: none !important; 
@@ -821,7 +822,6 @@ footer {
 }
 
 
-/* Re-apply the dashed border logic with the stronger selector */
 .custom-room-btn.active::after {
     content: "";
     position: absolute;
@@ -829,3 +829,24 @@ footer {
     pointer-events: none; 
 }
 
+.documentation-title {
+    background-color: var(--win-blue) !important; 
+    color: var(--win-white) !important;           
+
+    margin: -100 !important;          
+    padding: 8px 12px !important;  
+
+    display: block;                
+    width: 100vw !important;       /* full viewport width */
+    box-sizing: border-box;        /* ensures padding is included in width */
+}
+.toggle-frame .layout-options.active .toggle-knob {
+    transform: translateY(-50%) !important; /* cancel press-down */
+    box-shadow: inset 2px 2px 0px var(--win-white),
+                inset -2px -2px 0px var(--win-dark-grey) !important;
+}
+
+/* Prevent :active click state from affecting the knob */
+.toggle-frame .layout-options.active .toggle-knob:active {
+    transform: translateY(-50%) !important;
+}

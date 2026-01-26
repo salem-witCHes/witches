@@ -240,7 +240,7 @@ const roomData = {
         <p>This room explores the earliest representation of witch-like figures, rooted in <strong>myth, legend and pagan rituals</strong>. 
         Here, the witch appears as a healer, a priestess, a goddess or a mediator between the human and natural worlds. These figures were often associated with 
         fertility, cycles of life and death, herbal medicine and spiritual wisdom. In ancient societies, magic was not something to be feared. It was considered 
-        <strong>complementary to faith and daily life</strong>, with practitioners enjoying respect for their wisdom and power. <i>Mythic roots</i> invites visitors to encounter the witch 
+        <strong>complementary to faith and daily life</strong>, with practitioners enjoying respect for their wisdom and power. <em>Mythic roots</em> invites visitors to encounter the witch 
         not as a transgressor, but as a foundational cultural figure.</p>
         `,
     },
@@ -270,7 +270,7 @@ const roomData = {
         <p>In this room, the witch enters the realm of representation. <strong>Literature, film and visual art</strong> reimagine her as a figure of ambiguity: 
         monstrous, seductive, comic and powerful. From fairy tales to pop culture, the witch becomes a mirror reflecting society’s anxieties and desires.</p> 
 
-        <p><i>Visions and Shadows</i> explores how these images both perpetuate and complicate <strong>stereotypes</strong>. The witch is no longer executed, yet she is reframed and 
+        <p><em>Visions and Shadows</em> explores how these images both perpetuate and complicate <strong>stereotypes</strong>. The witch is no longer executed, yet she is reframed and 
         aestheticized through the gaze of others, appearing as a figure of fascination, fear or spectacle. This section invites visitors to question how 
         representation shapes perception and how cultural imagery can both obscure and reveal deeper truths.</p> 
         `,
@@ -286,7 +286,7 @@ const roomData = {
         persecute women is reclaimed by women as a declaration of power and autonomy.</p> 
 
         <p>Here, the witch becomes <strong>political</strong>. She embodies refusal, self-definition and collective memory, but also vulnerability, 
-        as persecution has not disappeared in all parts of the world. <i>Reclaiming the spell</i> connects past and present, revealing how the logic of witch hunts 
+        as persecution has not disappeared in all parts of the world. <em>Reclaiming the spell</em> connects past and present, revealing how the logic of witch hunts 
         still operates, even as new forms of resistance emerge.</p>
 
         <p>This room invites visitors to reflect on the present moment: if witches were once burned, today they may instead be silenced, displaced and forgotten. 
