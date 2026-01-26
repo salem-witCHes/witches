@@ -708,7 +708,7 @@ footer a:hover {
 .ellipse-2 {
     width: 60px;
     height: 60px;
-    background: url("../img/cyberpunk_timeline_icons.svg") center/contain no-repeat;
+    background: url("../img/cyberpunk/cyberpunk_timeline_icons.svg") center/contain no-repeat;
     border-radius: 0;
     position: absolute;
     top: 50%;
