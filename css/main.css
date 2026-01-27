@@ -910,8 +910,12 @@ footer a {
   .toggle-frame { top: 80px; gap: 12px; }
   .toggle-text { font-size: 16px; }
   .toggle-pill { width: 100px; height: 50px; }
-  .toggle-knob { width: 42px; height: 42px; top: 3px; left: 3px; }
-  .toggle-pill.eras-active .toggle-knob { transform: translateX(50px); }
+.toggle-knob { 
+    width: 42px !important; 
+    height: 42px !important; 
+    top: 3px !important; 
+    left: 3px !important; 
+  }  .toggle-pill.eras-active .toggle-knob { transform: translateX(50px); }
   #toggleIcon, #inactiveIcon { width: 24px; height: 24px; }
   .inactive-icon-wrapper { right: 12px; }
 }
