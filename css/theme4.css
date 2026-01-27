@@ -483,10 +483,8 @@ footer a:hover {
     z-index: -1;
 }
 
-
 /* Labels */
 .toggle-text {
-    font-size: 24px;
     font-family: var(--font-headers);
     color: var(--carbon-black);
     text-transform: uppercase;
