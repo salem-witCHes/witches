@@ -444,6 +444,11 @@ footer {
 .room-description {
     padding: 12px 0 0 0; 
 }
+
+ svg #door1,#door11,#door2, #door3, #door4, #door5, #door6, #door7, #door8, #door9,#door10, #door12, .entrance-door {
+    fill: #008080 !important;
+}
+
 /* -------------------------------------
    HOMEPAGE SECTIONS (W95 Panels)
    ------------------------------------- */
