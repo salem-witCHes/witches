@@ -687,3 +687,7 @@ footer a {
 #room-nav-controls .btn:hover::after {
     opacity: 1;
 }
+
+.card.mb-5.bg-white {
+  background-color: transparent !important
+}
