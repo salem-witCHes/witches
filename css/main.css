@@ -1594,5 +1594,8 @@ nav.navbar {
 }
 
 .row.gx-0.mb-4.item-table {
-  height: 546px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  height: 500px;
 }
