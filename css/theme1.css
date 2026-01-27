@@ -366,9 +366,7 @@ footer a {
     
 /* ----------------- Link Documentation Button ----------------- */
 .introduction, .link-documentation {
-    max-width: 90%;
-    padding-left: 150px;
-    padding-right: 150px;
+    
     text-align: center;
 }
 .link-documentation a {
