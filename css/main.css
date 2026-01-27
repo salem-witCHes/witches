@@ -979,12 +979,19 @@ footer a {
 }
 
 .era-description {
-    font-family: "Times New Roman", serif;
-    font-size: 14px;  /* slightly smaller */
-    color: var(--Greyscale-900);
-    margin: 0;
-    line-height: 1.2; /* tighter spacing */
+  padding-inline: 0 !important; 
+  padding: 0 !important;
+  margin-inline: 0 !important;
+  max-width: 100% !important;
+  font-family: "Times New Roman", serif;
+  font-size: 14px;
+  color: var(--Greyscale-900);
+  margin: 0;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  text-align: left;
 }
+
 
 /* ERA ITEMS - Grid layout */
 .era-items {
