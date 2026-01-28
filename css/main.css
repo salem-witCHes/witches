@@ -750,7 +750,7 @@ scaleX(-1) re-introduces the horizontal flip */
 }
 
 .introduction-text p,
-.documentation-text p {
+.link-documentation-text p {
   padding-inline: clamp(1rem, 3vw, 2rem);
   max-width: 70ch;
   margin-inline: auto;
