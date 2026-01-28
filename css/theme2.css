@@ -67,7 +67,7 @@ p {
   margin: 4vh auto;
   padding: 2rem;
   background: var(--paper-tone);
-  border: 2px solid var(--charcoal-ink);
+  border: 2px solid var(--dark-umber);
 }
 
 /* --- MOBILE TEXT FIXES --- */
@@ -501,7 +501,7 @@ footer .copyright-text p {
 
 @media (max-width: 768px) {
   .toggle-text {
-    font-size: 0.9rem !important; 
+    font-size: 0.8rem !important; 
     white-space: normal;
   }
 }
@@ -703,6 +703,22 @@ footer .copyright-text p {
   font-family: var(--text-font);
   color: var(--burnt-terracotta) !important;
 }
+
+.btn-icon {
+  color: var(--charcoal-ink) !important;
+}
+
+@media (max-width: 576px) {
+  .btn-icon {
+    color: var(--charcoal-ink) !important;
+  }
+
+  #btn-prev:hover .btn-icon,
+  #btn-next:hover .btn-icon {
+    color: var(--burnt-terracotta) !important;
+  }
+}
+
 
 @media (min-width: 768px) {
   .item-box, .table-box {
