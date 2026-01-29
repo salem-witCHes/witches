@@ -436,47 +436,21 @@ footer a:hover {
   filter: drop-shadow(0 0 6px var(--erin-green));
 }
 
-#text-entrance-room,
-#text-first-room, 
-#text-second-room, 
-#text-third-room, 
-#text-fourth-room {
+.room-name {
   font-family: var(--font-default);
   fill: var(--erin-green);
   font-weight: 600;
 }
 
 /* Hover effect and active state */
-#entrance-room:hover,
-#first-room:hover,
-#second-room:hover,
-#third-room:hover, 
-#fourth-room:hover, 
-#entrance-room.active,
-#first-room.active,
-#second-room.active,
-#third-room.active,
-#fourth-room.active {
+.museum-room:hover,
+.museum-room.active {
   fill: var(--erin-green) !important; 
   filter: drop-shadow(0 0 10px var(--erin-green));
 }
 
-/* Hover > text relationship */
-#entrance-room:hover + #text-entrance-room,
-#first-room:hover + #text-first-room,
-#second-room:hover + #text-second-room,
-#third-room:hover + #text-third-room, 
-#fourth-room:hover + #text-fourth-room {
-  fill: var(--magenta-glitch) !important;
-  text-shadow: 0 0 6px var(--magenta-glitch);
-} 
-
-/* Active > text relationship */
-#entrance-room.active + #text-entrance-room,
-#first-room.active + #text-first-room,
-#second-room.active + #text-second-room,
-#third-room.active + #text-third-room, 
-#fourth-room.active + #text-fourth-room {
+.museum-room:hover + .room-name,
+.museum-room.active + .room-name {
   fill: var(--magenta-glitch) !important;
   text-shadow: 0 0 6px var(--magenta-glitch);
 } 

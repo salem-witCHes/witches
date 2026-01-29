@@ -328,17 +328,7 @@ footer .copyright-text p {
   }
 }
 
-#door1,
-#door2,
-#door3,
-#door4,
-#door5,
-#door6,
-#door7,
-#door8,
-#door9,
-#door10,
-#door11 {
+.museum-door {
   fill: var(--paper-tone) !important;
 }
 
@@ -350,56 +340,32 @@ footer .copyright-text p {
   stroke: var(--charcoal-ink) !important;
 }
 
-#entrance-room,
-#first-room,
-#second-room,
-#third-room,
-#fourth-room {
+.museum-room {
   fill: var(--paper-tone) !important;
   stroke: none;
   opacity: 1;
   transition: fill 0.3s, opacity 0.3s;
 }
 
-#text-entrance-room,
-#text-first-room,
-#text-second-room,
-#text-third-room,
-#text-fourth-room {
+.room-name {
   font-family: var(--text-font) !important;
   fill: var(--charcoal-ink) !important;
   font-weight: 600;
 }
 
-#entrance-room:hover,
-#first-room:hover,
-#second-room:hover,
-#third-room:hover,
-#fourth-room:hover {
+.museum-room:hover {
   fill: var(--charcoal-ink) !important;
 }
 
-#entrance-room:hover+#text-entrance-room,
-#first-room:hover+#text-first-room,
-#second-room:hover+#text-second-room,
-#third-room:hover+#text-third-room,
-#fourth-room:hover+#text-fourth-room {
+.museum-room:hover+.room-name {
   fill: var(--paper-tone) !important;
 }
 
-#entrance-room.active,
-#first-room.active,
-#second-room.active,
-#third-room.active,
-#fourth-room.active {
+.museum-room.active {
   fill: var(--charcoal-ink) !important;
 }
 
-#entrance-room.active+#text-entrance-room,
-#first-room.active+#text-first-room,
-#second-room.active+#text-second-room,
-#third-room.active+#text-third-room,
-#fourth-room.active+#text-fourth-room {
+.museum-room.active+.room-name {
   fill: var(--paper-tone) !important;
 }
 

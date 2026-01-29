@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdownOverlay = document.getElementById("dropdownOverlay");
   const triggers = document.querySelectorAll(".trigger-style");
 
-  // Create and append the theme <link> to head (ready to load CSS files)
+  // Create and append the theme <link> to head 
   let themeLink = document.getElementById("themeStylesheet")
   if (!themeLink) {
     themeLink = document.createElement("link");
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     themeLink.href = `css/${savedTheme}.css`;
     updateActiveTheme(savedTheme);
   } 
-  // If no saved theme, do nothing - main.css is already loaded by default
+  // If no saved theme, do nothing since main.css is already loaded by default
 
 
   // Toggle dropdown visibility (click on the svg area to ride the function inside)
@@ -161,8 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Remove the theme stylesheet entirely to go back to main.css
       if (themeLink && themeLink.parentNode) {
         themeLink.href = ""; // Clear the href to unload the theme CSS
-        // OR you can remove it completely:
-        // themeLink.parentNode.removeChild(themeLink);
       }
     
       // Remove saved theme from localStorage
@@ -198,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setOpen(false);
   });
 
-  // Optional: close on ESC
+  // Close on ESC
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       setOpen(false);
@@ -357,12 +355,10 @@ const roomData = {
 
 let introHTML = ""; // Variable to store original HTML with intro text
 
-// Function to change dynamically rooms' descriptions 
 function showRoomDescription(roomId) {
     const panel = document.getElementById('room-description-panel')
 
-    // MANAGE ACTIVE CLASS
-    // First, remove "active" from every possible room
+    // Remove "active" from every possible room
     const allRoomIds = ['entrance-room', 'first-room', 'second-room', 'third-room', 'fourth-room'];
     allRoomIds.forEach(id => {
         const el = document.getElementById(id);
@@ -371,7 +367,7 @@ function showRoomDescription(roomId) {
         }
     });
 
-    // Then, add "active" to the room that was just clicked
+    // Add "active" to the room that was just clicked
     const currentRoom = document.getElementById(roomId);
     if (currentRoom) {
         currentRoom.classList.add('active');
@@ -382,6 +378,7 @@ function showRoomDescription(roomId) {
         panel.innerHTML = introHTML; // Restore intro text
         return;
     }
+
     // Get the data for the specific room ID
     const room = roomData[roomId];
     
@@ -402,8 +399,7 @@ function showRoomDescription(roomId) {
         </div>
     `;
 
-    // Inject the new HTML into the target div
-    // We use .innerHTML to completely replace the existing content.
+    // We use .innerHTML to completely replace the existing content with the new HTML
     panel.innerHTML = newHTML;
 }
 

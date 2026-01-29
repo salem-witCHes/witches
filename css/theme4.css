@@ -392,41 +392,24 @@ footer a:hover {
 --------------------------------- */
 #museum-walls {
   fill: var(--neon-pink);
-  stroke: #1D1D1D;
+  stroke: var(--carbon-black);
 }
 
-#text-entrance-room,
-#text-first-room, 
-#text-second-room, 
-#text-third-room,
-#text-fourth-room {
+.room-name {
   font-family: var(--font-secondary);
   fill: var(--carbon-black);
   font-weight: 600;
 }
 
-/* Define the hover effect */
-#entrance-room:hover,
-#first-room:hover,
-#second-room:hover,
-#third-room:hover, 
-#fourth-room:hover {
+.museum-room:hover {
   fill: var(--vanilla-cream) !important; 
 }
 
-#entrance-room.active,
-#first-room.active,
-#second-room.active,
-#third-room.active, 
-#fourth-room.active {
+.museum-room.active {
   fill: var(--vanilla-cream) !important; 
 }
 
-#entrance-room.active + #text-entrance-room,
-#first-room.active + #text-first-room,
-#second-room.active + #text-second-room,
-#third-room.active + #text-third-room, 
-#fourth-room.active + #text-fourth-room {
+.museum-room.active + .room-name {
   fill: var(--classic-crimson);
 }
 

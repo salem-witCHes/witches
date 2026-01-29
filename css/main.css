@@ -1196,7 +1196,6 @@ nav.navbar {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 200;
   display: block;
 }
 
@@ -1300,8 +1299,8 @@ nav.navbar {
 .map-container {
   margin: 0 auto 30px auto;
   display: flex;
-  justify-content: center; /* center SVG horizontally */
-  align-items: center; /* center SVG vertically */
+  justify-content: center; 
+  align-items: center; 
 }
 
 .map-container svg {
@@ -1310,60 +1309,34 @@ nav.navbar {
   display: block;
 }
 
-#entrance-room,
-#first-room,
-#second-room,
-#third-room,
-#fourth-room {
-  fill: var(--background-color) !important;
+.museum-room {
+  fill: var(--background-color) !important; */
   stroke: none;
   opacity: 0.8;
   transition: fill 0.3s, opacity 0.3s;
 }
 
 /* Hover and active effect */
-#entrance-room:hover,
-#first-room:hover,
-#second-room:hover,
-#third-room:hover,
-#fourth-room:hover {
+.museum-room:hover {
   fill: var(--Greyscale-50) !important;
   opacity: 1.0;
   cursor: pointer;
 }
 
-#entrance-room.active,
-#first-room.active,
-#second-room.active,
-#third-room.active,
-#fourth-room.active {
+.museum-room.active {
   fill: var(--Greyscale-50) !important;
   opacity: 1.0;
   cursor: pointer;
 }
 
-#text-entrance-room,
-#text-first-room,
-#text-second-room,
-#text-third-room,
-#text-fourth-room {
+.room-name {
   font-family: var(--default-font);
   font-size: 25px;
   font-weight: 600;
 }
 
-#door1,
-#door2,
-#door3,
-#door4,
-#door5,
-#door6,
-#door7,
-#door8,
-#door9,
-#door10,
-#door11 {
-  fill: var(--background-color) !important;
+.museum-door {
+  fill: var(--background-color);
 }
 
 .map-description {

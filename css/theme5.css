@@ -348,12 +348,10 @@ footer {
     font-family: var(--default-font) !important;
     font-size: 12px;
 }
+
 /*  MAP PAGE */
 
-#text-first-room,
-#text-second-room,
-#text-third-room, 
-#text-fourth-room {
+.room-name {
     font-family: var(--default-font) !important;
     fill: var(--win-black) !important; 
     font-weight: normal !important;
@@ -416,7 +414,8 @@ footer {
     padding: 12px 0 0 0; 
 }
 
- svg #door1,#door11,#door2, #door3, #door4, #door5, #door6, #door7, #door8, #door9,#door10, #door12, .entrance-door {
+.museum-door,
+.entrance-door {
     fill:var(--win-teal) !important;
 }
 

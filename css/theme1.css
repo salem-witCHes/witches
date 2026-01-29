@@ -297,10 +297,8 @@ footer a {
 .link-documentation a {
   border-radius: 0px;
 }
-#first-room:hover,
-#second-room:hover,
-#third-room:hover,
-#fourth-room:hover {
+
+.museum-room:hover {
   fill: var(--noise-color) !important;
   opacity: 1.0;
   cursor: pointer;
