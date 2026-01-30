@@ -1,4 +1,4 @@
-// localStorage.removeItem('hasVisited'); // 🧪 comment this out when you go live
+localStorage.removeItem('hasVisited'); 
 
 
 // ---- OPENING PAGE ----
