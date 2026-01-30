@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.head.appendChild(themeLink);
   }
 
-// Update active state 
+// Update active state of the active theme
   function updateActiveTheme(themeName) {
     triggers.forEach(t => {
       if (t.dataset.theme === themeName) {
@@ -107,13 +107,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // If no saved theme, do nothing since main.css is already loaded by default
 
 
-  // Toggle dropdown visibility (click on the svg area to ride the function inside)
+  // Toggle dropdown via mouse
   layoutButton.addEventListener("click", (e) => {
     e.stopPropagation();
     setOpen(!layoutOptions.classList.contains("active"));
   });
 
-  // Allow keyboard toggle (Enter / Space) -> Accessibility
+  // Toggle dropdown (Enter / Space) 
   layoutButton.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -121,14 +121,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Theme selection - read data-theme attribute (must be set in HTML)
+  // Theme selection 
   triggers.forEach(trigger => {
     trigger.addEventListener("click", (e) => {
-      e.stopPropagation();  // Prevents closing the drowpdown immediately
+      e.stopPropagation();  // Avoid closing the drowpdown immediately
       const theme = trigger.dataset.theme;
       if (!theme) return;
 
-      // Prevent reloading same theme
+      // Avoid reloading same theme
       if (themeLink.href.endsWith(`${theme}.css`)) {
         setOpen(false);
         return;
@@ -138,12 +138,12 @@ document.addEventListener("DOMContentLoaded", function () {
       themeLink.href = `css/${theme}.css`;
       sessionStorage.setItem("selectedTheme", theme);
       updateActiveTheme(theme);
-      setOpen(false);  // Close the dropdown after selecting a theme
+      setOpen(false);  // Close the dropdown after selection
 
       console.log(`Theme switched to: ${theme}`);
     });
 
-    // keyboard support for theme items
+    // Keyboard support for theme items
     trigger.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
@@ -158,18 +158,16 @@ document.addEventListener("DOMContentLoaded", function () {
     resetButton.addEventListener("click", (e) => {
       e.stopPropagation();
       
-      // Remove the theme stylesheet entirely to go back to main.css
+      // Remove the theme stylesheet to go back to main.css
       if (themeLink && themeLink.parentNode) {
-        themeLink.href = ""; // Clear the href to unload the theme CSS
+        themeLink.href = ""; 
       }
     
       // Remove saved theme from localStorage
       sessionStorage.removeItem("selectedTheme");
 
-      // Clear active state from all themese 
       updateActiveTheme(null);
       
-      // Close dropdown
       setOpen(false);
       
       console.log("Reset to default theme (main.css)");
@@ -184,19 +182,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 }
 
-  // Close when clicking outside
+  // Close dropdown when clicking outside
   document.addEventListener("click", (e) => {
     if (!layoutButton.contains(e.target) && !layoutOptions.contains(e.target)) {
       setOpen(false);
     }
   });
 
-  // Close when clicking on overlay
+  // Close dropdown when clicking on overlay or ESC
   dropdownOverlay.addEventListener("click", () => {
     setOpen(false);
   });
 
-  // Close on ESC
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       setOpen(false);
@@ -286,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // --- MAP PAGE DESCRIPTIONS ---
-// JavaScript object to hold the descriptions for all rooms
+// Rooms' descriptions
 const roomData = {
     'first-room': {
         title: "Mythic roots",
@@ -353,12 +350,14 @@ const roomData = {
     }
 };
 
-let introHTML = ""; // Variable to store original HTML with intro text
+// Store original HTML with intro text
+let introHTML = ""; 
 
+// Display the description associated with a clicked room
 function showRoomDescription(roomId) {
     const panel = document.getElementById('room-description-panel')
 
-    // Remove "active" from every possible room
+    // Reset active state for all rooms
     const allRoomIds = ['entrance-room', 'first-room', 'second-room', 'third-room', 'fourth-room'];
     allRoomIds.forEach(id => {
         const el = document.getElementById(id);
@@ -367,19 +366,19 @@ function showRoomDescription(roomId) {
         }
     });
 
-    // Add "active" to the room that was just clicked
+    // Add "active" to the room that was clicked
     const currentRoom = document.getElementById(roomId);
     if (currentRoom) {
         currentRoom.classList.add('active');
     }
 
-    // Check if the user clicked the entrance 
+    // Check if the user clicked the entrance and restore intro text
     if (roomId === 'entrance-room') {
-        panel.innerHTML = introHTML; // Restore intro text
+        panel.innerHTML = introHTML; 
         return;
     }
 
-    // Get the data for the specific room ID
+    // Retrieve room data
     const room = roomData[roomId];
     
     if (!room) {
@@ -388,7 +387,7 @@ function showRoomDescription(roomId) {
         return;
     }
 
-    // Build the new HTML content
+    // Render room description
     const newHTML = `
         <h2 class="room-title">${room.title}</h2>
         <p class="room-description">${room.description}</p>
@@ -405,11 +404,11 @@ function showRoomDescription(roomId) {
 
 // Attach Event Listeners on Load
 document.addEventListener('DOMContentLoaded', () => {
-    // Save the initial content before any clicks happen
+    // Save the initial intro text
     const panel = document.getElementById('room-description-panel');
     introHTML = panel.innerHTML;
 
-    // Define a list of ALL interactive room IDs
+    // List of interactive rooms
     const roomIds = [
         'entrance-room',
         'first-room', 
@@ -418,14 +417,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'fourth-room'
     ];
 
-    // Loop through the list to attach listeners to all rooms
+    // Loop through the list to attach listeners to each room
     roomIds.forEach(roomId => {
         const roomElement = document.getElementById(roomId);
 
-        // Check if the element was successfully found
         if (roomElement) {
             roomElement.addEventListener('click', function() {
-                // 'this.id' is the ID of the path that was clicked
                 showRoomDescription(this.id);
                 console.log("Clicked:", this.id);
             });
