@@ -435,7 +435,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // --- ITEM PAGE ---
-
 document.addEventListener('DOMContentLoaded', () => {
     // variables to hold data
     let allItems = {};
