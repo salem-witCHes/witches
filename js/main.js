@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const forest = document.getElementById('forestContainer');
   const elementsToReveal = document.querySelectorAll('.content-to-reveal');
 
-  if (hasVisited) {
+  if (forest && hasVisited) {
     forest.style.display = 'none';
     elementsToReveal.forEach(element => {
         // temporarily disable the transition so it appears instantly
@@ -206,6 +206,9 @@ document.addEventListener("DOMContentLoaded", function () {
 // --- Toggle switcher JS ---
 document.addEventListener("DOMContentLoaded", () => {
   const knob = document.querySelector(".toggle-knob");
+
+  if (!knob) return;
+
   const labelChrono = document.getElementById("labelChrono");
   const labelEras = document.getElementById("labelEras");
   const togglePill = document.querySelector(".toggle-pill");
@@ -355,7 +358,9 @@ let introHTML = "";
 
 // Display the description associated with a clicked room
 function showRoomDescription(roomId) {
-    const panel = document.getElementById('room-description-panel')
+    const panel = document.getElementById('room-description-panel');
+    
+
 
     // Reset active state for all rooms
     const allRoomIds = ['entrance-room', 'first-room', 'second-room', 'third-room', 'fourth-room'];
@@ -406,36 +411,42 @@ function showRoomDescription(roomId) {
 document.addEventListener('DOMContentLoaded', () => {
     // Save the initial intro text
     const panel = document.getElementById('room-description-panel');
-    introHTML = panel.innerHTML;
 
-    // List of interactive rooms
-    const roomIds = [
-        'entrance-room',
-        'first-room', 
-        'second-room', 
-        'third-room', 
-        'fourth-room'
-    ];
+    if (panel) {
+        introHTML = panel.innerHTML;
+        
+        // List of interactive rooms
+        const roomIds = [
+            'entrance-room',
+            'first-room', 
+            'second-room', 
+            'third-room', 
+            'fourth-room'
+        ];
 
-    // Loop through the list to attach listeners to each room
-    roomIds.forEach(roomId => {
-        const roomElement = document.getElementById(roomId);
+        // Loop through the list to attach listeners to each room
+        roomIds.forEach(roomId => {
+            const roomElement = document.getElementById(roomId);
 
-        if (roomElement) {
-            roomElement.addEventListener('click', function() {
-                showRoomDescription(this.id);
-                console.log("Clicked:", this.id);
-            });
-        } else {
-            console.warn(`Warning: SVG element with ID '${roomId}' not found in the DOM.`);
-        }
-    });
+            if (roomElement) {
+                roomElement.addEventListener('click', function() {
+                    showRoomDescription(this.id);
+                    console.log("Clicked:", this.id);
+                });
+            } else {
+                console.warn(`Warning: SVG element with ID '${roomId}' not found in the DOM.`);
+            }
+        });
+    } 
 });
-
 
 
 // --- ITEM PAGE ---
 document.addEventListener('DOMContentLoaded', () => {
+
+    const itemPageElement = document.getElementById('item-image-display');
+    if (!itemPageElement) return;
+
     // variables to hold data
     let allItems = {};
     let narratives = {};
